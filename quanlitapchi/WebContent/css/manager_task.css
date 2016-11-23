@@ -1,0 +1,134 @@
+/*********************************************************manager_task*************************************************/
+/* Basic Style */
+#manager_task, #manager_member {
+	background: #fff;
+	color: #333;
+	font-family: Lato, sans-serif;
+	display: block;
+	width: 480px;
+	height : auto;
+	margin: 100px auto 0;
+}
+
+#manager_task ul, #manager_member ul {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+#manager_task li *, #manager_member li * {
+	float: left;
+}
+
+#manager_task li, h3 {
+	clear: both;
+	list-style: none;
+}
+
+#manager_task input, button, #manager_member  input {
+	outline: none;
+}
+
+#manager_task button, #manager_member button {
+	background: none;
+	border: 0px;
+	color: #888;
+	font-size: 15px;
+	width: 60px;
+	margin: 10px 0 0;
+	font-family: Lato, sans-serif;
+	cursor: pointer;
+}
+
+#manager_task button:hover, #manager_member button:hover {
+	color: #333;
+}
+/* Heading */
+#manager_task h3, #manager_task label[for='new-task'], #manager_member  h3, #manager_member label[for='new-member']{
+	color: #333;
+	font-weight: 700;
+	font-size: 15px;
+	border-bottom: 2px solid #333;
+	padding: 10px 0 10px;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+#manager_task input[type="text"], #manager_member input[type="text"] {
+	margin: 10px;
+	font-size: 18px;
+	line-height: 18px;
+	height: 18px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	background: #fff;
+	border-radius: 6px;
+	font-family: Lato, sans-serif;
+	color: #888;
+}
+
+#manager_task input[type="text"]:focus, #manager_member input[type="text"]:focus {
+	color: #333;
+}
+
+/* New Task */
+#manager_task label[for='new-task'], #manager_member label[for='new-member'] {
+	display: block;
+	margin: 0 0 0px;
+}
+
+#manager_task input#new-task, #manager_member input#new-member {
+	float: left;
+	width: 318px;
+}
+
+#manager_task p>button:hover, #manager_member p>button:hover {
+	color: #0FC57C;
+}
+
+/* Task list */
+#manager_task li, #manager_member li {
+	overflow: hidden;
+	border-bottom: 1px solid #eee;
+}
+
+#manager_task li>input[type="checkbox"] {
+	margin: 0 10px;
+	position: relative;
+	top: 15px;
+}
+
+#manager_task li>label, #manager_member li>label {
+	font-size: 18px;
+	line-height: 40px;
+	width: 237px;
+	padding: 0 0 0 11px;
+}
+
+#manager_task li>input[type="text"], #manager_member li>input[type="text"] {
+	width: 226px;
+}
+
+#manager_task li>.delete:hover, #manager_member li>.delete:hover {
+	color: #CF2323;
+}
+
+/* Completed */
+#manager_task #completed-tasks label {
+	text-decoration: line-through;
+	color: #888;
+	
+}
+
+/* Edit Task */
+#manager_task ul li input[type=text]{
+	display: none;
+}
+
+#manager_task ul li.editMode input[type=text]{
+	display: block;
+}
+
+#manager_task ul li.editMode label {
+	display: none;
+}
