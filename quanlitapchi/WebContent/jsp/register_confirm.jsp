@@ -1,5 +1,5 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -56,22 +56,23 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="mynav nav navbar-nav navbar-right">
-					<li><a href="index.jsp" title="Home"> <span class="icon"><i
-								class="fa fa-home" title="Trang Chủ"></i></span> <span>Trang Chủ</span>
+				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
+					<li class="home "><a  href="index.jsp" title="Home"> <span
+							class="icon"><i class="glyphicon glyphicon-home"
+								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li class="selected"><a href="register.jsp" title="Đăng Ký" > <span
-							class="icon"><i class="fa fa-share-alt active"
-								title="Join Us"></i></span> <span>Đăng Ký</span>
+					<li class="register selected"><a class="" href="register.jsp" title="Đăng Ký"> <span
+							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
+							<span>Đăng Ký</span>
 					</a></li>
 
-					<li><a href="contact.jsp" title="Liên Hệ"> <span
+					<li class="contact"><a class="" href="contact.jsp" title="Liên Hệ"> <span
 							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
 								Hệ</span>
 					</a></li>
 
-					<li><a href="signin.jsp" title="Đăng Nhập"> <span
-							class="icon"><i class="fa fa-user" title="Đăng Nhập"></i></span>
+					<li class="login"><a class="" href="signin.jsp" title="Đăng Nhập"> <span
+							class="icon "><i class="fa fa-user" title="Đăng Nhập"></i></span>
 							<span>Đăng Nhập</span>
 					</a></li>
 				</ul>
@@ -121,20 +122,6 @@
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
-		<script>
-			$(function() {
-				center()
-				$(window).resize(function() {
-					center()
-				})
-				function center() {
-					$('div').css({
-						left : ($(window).width() - $('div').width()) / 2,
-						top : ($(window).height() - $('div').height()) / 2
-					})
-				}
-			})
-		</script>
 	</nav>
 	<!-- Navigation Ends -->
 	<!-- header pageeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
@@ -150,15 +137,29 @@
 					</p>
 				</div>
 				<div class="col-md-8">
-					<form class="form-horizontal" action="" method="post" role="form" accept-charset="UTF-8">
-					<% request.setCharacterEncoding("UTF-8"); %>
+					<form class="form-horizontal" action="../register" method="post"
+						role="form" accept-charset="UTF-8">
+							<% request.setCharacterEncoding("UTF-8"); %>
+						<div class="hidden">
+							<input type="text" name="first_name"
+								value='<%=request.getParameter("first_name")%>'> <input
+								type="text" name="last_name"
+								value='<%=request.getParameter("last_name")%>'> <input
+								type="text" name="email"
+								value='<%=request.getParameter("email")%>'> <input
+								type="text" name="user_name"
+								value='<%=request.getParameter("user_name")%>'> <input
+								type="text" name="user_password"
+								value='<%=request.getParameter("user_password")%>'> <input
+								type="text" name="class"
+								value='<%=request.getParameter("class")%>'>
+						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label lb" for="first_name">Given/First
 								Name: <span>*</span>
 							</label>
 							<div class="col-md-8">
-								<input type="text"name="first_name" disabled="disabled"
-								value='<%=request.getParameter("first_name") %>'>
+								<label><%=request.getParameter("first_name")%></label>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -166,25 +167,24 @@
 							<label class="col-md-4 control-label lb" for="last_name">Family/
 								Last Name: </label>
 							<div class="col-md-8">
-								<input type="text"name="last_name" disabled="disabled"
-								value='<%=request.getParameter("last_name")%>'>
+								<label><%=request.getParameter("last_name")%></label>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 						<div class="form-group">
-							<label class="col-md-4 control-label lb" for="email">Email: </label>
-							<div class="col-md-8">
-								<input type="text"name="email" disabled="disabled"
-								value='<%=request.getParameter("email")%>'>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-4 control-label lb" for="user_name">User: <span>*</span>
+							<label class="col-md-4 control-label lb" for="email">Email:
 							</label>
 							<div class="col-md-8">
-								<input type="text"name="user_name" disabled="disabled"
-								value='<%=request.getParameter("user_name") %>'>
+								<label><%=request.getParameter("email")%></label>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label lb" for="user_name">User:
+								<span>*</span>
+							</label>
+							<div class="col-md-8">
+								<label><%=request.getParameter("user_name")%></label>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -193,8 +193,11 @@
 								<span>*</span>
 							</label>
 							<div class="col-md-8">
-								<input type="password"name="user_password" disabled="disabled"
-								value='<%=request.getParameter("user_password")%>'>
+								<label ><% int len = request.getParameter("user_password").length();
+								           String passwd = "";
+										for(int i = 0; i< len; i++)
+											passwd += "*"; %>
+											<%=passwd%></label>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -203,8 +206,27 @@
 								<span>*</span>
 							</label>
 							<div class="col-md-8">
-								<input type="text"name="class" disabled="disabled"
-								value='<%=request.getParameter("class") %>'>
+								<%int cl = Integer.parseInt(request.getParameter("class"));
+									String role = "";
+									switch (cl) {
+									case 1:
+										role = "Editor";
+										break;
+									case 2:
+										role = "Author";
+										break;
+									case 3:
+										role = "Reviewer";
+										break;
+									case 4:
+										role = "Reader";
+										break;
+									default:
+										role = "Admin";
+										break;
+									}
+									;%>
+								<label><%=role%></label>
 							</div>
 							<div class="clearfix"></div>
 						</div>

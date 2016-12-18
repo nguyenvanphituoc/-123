@@ -1,5 +1,7 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="model.User" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -9,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Đăng Nhập</title>
+<title>Đăng Nhập Thất Bại</title>
 
 <!-- Bootstrap Core CSS -->
 
@@ -55,28 +57,40 @@
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
+		<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
-					<li class="home "><a href="index.jsp" title="Home"> <span
+					<li class="home "><a  href="index.jsp" title="Home"> <span
 							class="icon"><i class="glyphicon glyphicon-home"
 								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li class="register"><a class="" href="register.jsp"
-						title="Đăng Ký"> <span class="icon"><i
-								class="fa fa-share-alt" title="Join Us"></i></span> <span>Đăng
-								Ký</span>
+					<li class="register"><a class="" href="register.jsp" title="Đăng Ký"> <span
+							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
+							<span>Đăng Ký</span>
 					</a></li>
 
-					<li class="contact"><a class="" href="contact.jsp"
-						title="Liên Hệ"> <span class="icon"><i
-								class="fa fa-phone"></i></span> <span>Liên Hệ</span>
+					<li class="contact"><a class="" href="contact.jsp" title="Liên Hệ"> <span
+							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
+								Hệ</span>
 					</a></li>
 
-					<li class="login selected"><a class="" href="signin.jsp"
-						title="Đăng Nhập"> <span class="icon "><i
-								class="fa fa-user" title="Đăng Nhập"></i></span> <span>Đăng Nhập</span>
+					<li class="login"><a class="" href="signin.jsp" title="Đăng Nhập"> <span
+							class="icon "><i class="fa fa-user" title="Đăng Nhập"></i></span>
+							<span>Đăng Nhập</span>
 					</a></li>
+					<li class="dropdown mypage"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown">MyPage <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<ins>Profile</ins>
+							<li><a href="#">Profile</a></li>
+							<ins>Message</ins>
+							<li class=""><a href="#">Message</a></li>
+							<ins>Journal</ins>
+							<li class=""><a href="#">Recent</a></li>
+							<ins>Other</ins>
+							<li class=""><a href="">Sign out</a></li>
+						</ul></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -97,7 +111,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					Đăng Nhập <small>nhập tài khoản</small>
+					Đăng Nhập <small>thất bại</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="index.jsp">Home</a></li>
@@ -113,91 +127,30 @@
 				<div class="col-md-3"
 					style="border-right: 3px solid gray; margin-right: 25px;">
 					<p>
-						<span style="font-weight: bold;">Pre-registration Page </span><br>
+						<span style="font-weight: bold;">Failed Login Page </span><br>
 						To register to use the Editorial Manager system, please enter the
 						requested information. Upon successful registration, you will be
 						sent an e-mail with instructions to verify your registration.
 					</p>
 				</div>
 				<div class="col-md-6">
-					<form name="login" id="loginForm" class="form-horizontal"
-						action="../login" method="post" role="form">
-						<div class="form-group">
-							<label class="col-md-4 control-label lb" for="username">User
-								Name: <span>*</span>
-							</label>
-							<div class="col-md-8">
-								<input type="text" value="" name="username" required
-									class="form-control">
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-4 control-label lb" for="password">Password:
-								<span>*</span>
-							</label>
-							<div class="col-md-8">
-								<input id="" type="password" value="" name="password" required
-									placeholder="Enter your password" class="form-control">
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-4 control-label lb" for="class">Login
-								is for : <span>*</span>
-							</label>
-							<div class="row col-md-8 radio_group">
-								<div class="col-md-3">
-									<label class="radio"><input type="radio" name="class"
-										value="1" required="required"> Editor </label>
-								</div>
-								<div class="col-md-3">
-									<label class="radio"><input type="radio" name="class"
-										value="2"> Author </label>
-								</div>
-								<div class="col-md-3">
-									<label class="radio"><input type="radio" name="class"
-										value="3"> Reviewer </label>
-								</div>
-								<div class="col-md-3">
-									<label class="radio"><input type="radio" name="class"
-										value="4"> Reader </label>
-								</div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="form-group">
-							<span class="error col-md-12">${error}</span> <br>
-							<div class="clearfix"></div>
-						</div>
-						<div class="row">
-							<p class="h6 mess">
-								<span class="label-warning">WARNING</span> - If you think you
-								already have an existing registration of any type (Author,
-								Reviewer, or Editor) in this system, please DO NOT register
-								again. This will cause delays or prevent the processing of any
-								review or manuscript you submit. <br> If you are unsure if
-								you are already registered, click the 'Forgot Your Login
-								Details?' button. If you are registering again because you want
-								to change your current information, changes must be made to your
-								existing information by clicking the 'Update My Information'
-								link on the menu bar. If you are unsure how to perform these
-								functions, please contact the editorial office.
-							</p>
-							<br>
-							<div class="clearfix"></div>
-						</div>
-						<div class="row">
-							<div class="btn col-md-6 " align="center">
-								<input class=" btn-default" type="button"
-									title="Forgot your login details" value="Quên tài khoản">
-							</div>
-							<div class="btn col-md-3" align="right">
-								<input class=" btn-default" type="submit" title="Login"
-									value="Đăng Nhập" form="loginForm">
-							</div>
-						</div>
-					</form>
+					<h1>Đăng Nhập Thất Bại :(</h1>
+					<p>
+						<%
+							User user = (User)session.getAttribute("user");
+						    String errMessage = (String)getServletContext().getAttribute("errMessage");
+							if ((user.getUsername() == "") || (user.getUsername() == null) ) {
+						%>
+								You are not logged in. <%= errMessage.toString() %><br /> <a href="signin.jsp">Please Login</a>
+						<%
+							} else {
+						%>	
+						  login failed with						
+						<%=user.getuFirstname().toString()+ " " + user.getuLastname().toString() + " "%><a href='signin.jsp'>Login again</a>
+						<%
+							}
+						%>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -447,7 +400,7 @@
 									<li><a title="Google "
 										class="btn btn-social-icon btn-google"
 										onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-google']);"
-										href="https://plus.google.com/ OmicsgroupOrg/" target="_blank"><i
+										href="https://plus.google.com/+OmicsgroupOrg/" target="_blank"><i
 											class="fa fa-google-plus"></i></a></li>
 									<!-- <li> <a title="Pinterest" class="btn btn-social-icon btn-pinterest" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-pinterest']);" href="http://pinterest.com/omicspublishing/" target="_blank"><i class="fa fa-pinterest"></i></a> </li> -->
 									<li><a title="LinkedIn"
@@ -476,6 +429,7 @@
 
 	</div>
 	<!-- /.container -->
+
 	<!-- jQuery -->
 	<script src="../js/jquery.js"></script>
 
@@ -511,6 +465,9 @@
 	</div>
 	<!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
 	<script src="../js/jqBootstrapValidation.js"></script>
+		<!-- isLogin -->
+	<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	<div w3-include-html="/assistantjsp/isLogin.jsp"></div> 
 	<script src="../js/main.js"></script>
 </body>
 

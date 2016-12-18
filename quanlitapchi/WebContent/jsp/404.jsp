@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>Something went wrong!</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -29,14 +29,18 @@
 </head>
 
 <body>
-	<h1>404 Page Not Found!!!!!</h1>
- 	Sorry! U see this page because your URL enter not found
+ 	<span style="color: red,">Something went wrong pls see this error </span><br>
+ 	<%StringBuilder errMessage = (StringBuilder)getServletContext().getAttribute("errMessage"); %>
+ 	<h1 style="color: yellow;"><%=errMessage.toString()%></h1>
+ 	<a href="index.jsp">Return home page :)</a>
     <!-- jQuery -->
     <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-
+	<!-- isLogin -->
+	<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	<div w3-include-html="/assistantjsp/isLogin.jsp"></div> 
 </body>
 
 </html>

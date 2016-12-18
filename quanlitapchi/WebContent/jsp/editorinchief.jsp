@@ -44,73 +44,38 @@
                 <a class="navbar-brand" href="index.html">Start Bootstrap</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="services.html">Services</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li class="active">
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="blog-home-1.html">Blog Home 1</a>
-                            </li>
-                            <li>
-                                <a href="blog-home-2.html">Blog Home 2</a>
-                            </li>
-                            <li>
-                                <a href="blog-post.html">Blog Post</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+           <div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
+					<li class="home selected"><a  href="index.jsp" title="Home"> <span
+							class="icon"><i class="glyphicon glyphicon-home"
+								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
+					</a></li>
+					<li class="register"><a class="" href="register.jsp" title="Đăng Ký"> <span
+							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
+							<span>Đăng Ký</span>
+					</a></li>
+
+					<li class="contact"><a class="" href="contact.jsp" title="Liên Hệ"> <span
+							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
+								Hệ</span>
+					</a></li>
+
+					<li class="login"><a class="" href="signin.jsp" title="Đăng Nhập"> <span
+							class="icon "><i class="fa fa-user" title="Đăng Nhập"></i></span>
+							<span>Đăng Nhập</span>
+					</a></li>
+					<li class="dropdown mypage"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown">MyPage <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<ins>Profile</ins>
+							<li><a href="#">Home</a></li>
+							<ins>Other</ins>
+							<li class=""><a href="../logout">Sign out</a></li>
+						</ul></li>
+				</ul>
+			</div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -254,7 +219,34 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-
+	
+	<!-- isLogin , khi đang ở file w3data.js gọi đến file jsp-->
+	    <%@ page import="model.User" %>
+		<%
+		 	User us = (User)session.getAttribute("user");
+			if ((us.getUsername() == null) || (us.getUsername() == "")) {
+		%>
+		<script type="text/javascript">
+			var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];
+			$headernav.attributes["noLogin"].value = 1;
+		</script>
+		<%
+			} else {
+		%>
+			<script type="text/javascript">
+			var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];
+			$headernav.attributes["noLogin"].value = 0;
+			// gán sự kiện cho btn của mypage			
+			var li = $headernav.children[$headernav.children.length-1];
+			var a = li.querySelector("a");
+			var innerText = "<%= us.getuFirstname() + " " + us.getuLastname() + " "%> </span> <b class='caret'></b>";
+			a.innerHTML  = "<span class='icon'><i class='glyphicon glyphicon-user' title='Trang Cá Nhân'></i></span> <span>"
+			a.innerHTML += innerText;
+			a.innerHTML +="";
+			</script>
+		<%
+			}
+		%>
 </body>
 
 </html>

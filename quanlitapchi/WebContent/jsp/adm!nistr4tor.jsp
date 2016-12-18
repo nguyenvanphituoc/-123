@@ -1,9 +1,10 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -73,20 +74,39 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="nav mynav navbar-nav navbar-right">
-					<li><a href="index.jsp" title="Home"> <span class="icon"><i
-								class="fa fa-home active" title="Trang Chủ"></i></span> <span>Trang
-								Chủ</span>
+				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
+					<li class="home selected"><a href="index.jsp" title="Home">
+							<span class="icon"><i class="glyphicon glyphicon-home"
+								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li><a href="register.jsp" title="Đăng Ký"> <span
-							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
-							<span>Đăng Ký</span>
+					<li class="register"><a class="" href="register.jsp"
+						title="Đăng Ký"> <span class="icon"><i
+								class="fa fa-share-alt" title="Join Us"></i></span> <span>Đăng
+								Ký</span>
 					</a></li>
 
-					<li><a href="contact.jsp" title="Liên Hệ"> <span
-							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
-								Hệ</span>
+					<li class="contact"><a class="" href="contact.jsp"
+						title="Liên Hệ"> <span class="icon"><i
+								class="fa fa-phone"></i></span> <span>Liên Hệ</span>
 					</a></li>
+
+					<li class="login"><a class="" href="signin.jsp"
+						title="Đăng Nhập"> <span class="icon "><i
+								class="fa fa-user" title="Đăng Nhập"></i></span> <span>Đăng Nhập</span>
+					</a></li>
+					<li class="dropdown mypage"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown">MyPage <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<ins>Profile</ins>
+							<li><a href="#">Profile</a></li>
+							<ins>Message</ins>
+							<li class=""><a href="#">Message</a></li>
+							<ins>Journal</ins>
+							<li class=""><a href="#">Recent</a></li>
+							<ins>Other</ins>
+							<li class=""><a href="">Sign out</a></li>
+						</ul></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -131,7 +151,10 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<form name="login" id="loginForm" class="form-horizontal" action="" method="post" role="form">
+					<form name="login" id="loginForm" class="form-horizontal"
+						action="../login" method="post" role="form">
+						<div class="hidden"><input type="text" name="class"
+										value="0" ></div>
 						<div class="form-group">
 							<label class="col-md-4 control-label lb" for="user_name">User
 								Name: <span>*</span>
@@ -141,17 +164,17 @@
 									class="form-control">
 							</div>
 							<div class="clearfix"></div>
-						</div>						
+						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label lb" for="user_pass">Password:
 								<span>*</span>
 							</label>
 							<div class="col-md-8">
-								<input type="email" value="" name="user_pass" required
+								<input type="password" value="" name="user_pass" required
 									placeholder="Enter your password" class="form-control">
 							</div>
 							<div class="clearfix"></div>
-						</div>					
+						</div>
 						<div class="row">
 							<p class="h6 mess">
 								<span class="label-warning">WARNING</span> - If you think you
@@ -170,7 +193,7 @@
 							<div class="clearfix"></div>
 						</div>
 
-						<div class="row">						
+						<div class="row">
 							<div class="btn col-md-6 " align="center">
 								<input class=" btn-default" type="button"
 									title="Forgot your login details" value="Quên tài khoản">
@@ -184,7 +207,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<hr>
 
 		<!-- Footer -->
@@ -496,7 +519,7 @@
 	<!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
 	<script src="../js/jqBootstrapValidation.js"></script>
 	<script src="../js/contact_me.js"></script>
-
+	<script src="../js/main.js"></script>
 </body>
 
 </html>

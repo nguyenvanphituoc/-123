@@ -1,5 +1,6 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -10,7 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-
 <title>TẠP CHÍ KHOA HỌC</title>
 
 <!-- Bootstrap Core CSS -->
@@ -95,7 +95,8 @@
 							<ins>Profile</ins>
 							<li class=""><a href="../logout" value="Home Page">Home</a></li>
 							<ins>Other</ins>
-							<li class=""><a href="../logout"  value="Sign Out">Sign out</a></li>
+							<li class=""><a href="../logout" value="Sign Out">Sign
+									out</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -110,62 +111,6 @@
 			SƯ PHẠM KỸ THUẬT</h1>
 	</div>
 	<!-- HEADER PAGE Ends-->
-	<!-- index.jsp Navigation start-->
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header ">
-				<button data-target="#bs-example-navbar-collapse-2"
-					data-toggle="collapse" class="navbar-toggle collapsed"
-					type="button">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div id="bs-example-navbar-collapse-2"
-				class="collapse navbar-collapse " align="center">
-				<ul class="nav navbar-nav ">
-					<li><a title="About Us" href="about.jsp">Chi Tiết Về
-							Website</a></li>
-					<li class="dropdown"><a aria-expanded="false" role="button"
-						data-toggle="dropdown" class="dropdown-toggle" href="#"
-						title="Journals">Danh Sách Tạp Chí<span class="caret"></span></a>
-						<ul role="menu" class="dropdown-menu pds">
-							<li><a title="A-Z Journals" href="#">Theo Bảng Chữ Cái
-									A-Z</a></li>
-							<li><a title="Browse By Subject" href="#">Theo Thể Loại</a></li>
-							<!--                <li><a title="Browse By Indexing" href="http://www.omicsonline.org/omics-group-indexed-journals-list-medline-isi-scopus.php">Browse By Indexing</a></li>-->
-						</ul></li>
-					<li><a title="Editors-in-Chief" href="#">Danh Sách Tổng
-							Biên tập</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-	</nav>
-	<!-- Navigation Ends -->
-
-	<!-- Header Carousel -->
-	<div id="myCarousel" class="carousel slide">
-		<div class="item">
-			<img class="img-responsive center-block"
-				src="../assets/slider_mobile.png" alt="">
-			<p>Caption 1</p>
-		</div>
-		<div class="item ">
-			<img class="img-responsive center-block"
-				src="../assets/slider_mobile.png">
-			<p>Caption 2</p>
-		</div>
-		<div class="item">
-			<img class="img-responsive center-block"
-				src='http://placehold.it/1900x1080&amp;text=Slide Three' alt="">
-			<p>Caption 3</p>
-		</div>
-	</div>
-	<!-- Header Carousel END-->
 	<!-- Srch Area -->
 	<div class="srcharea_wrapper">
 		<div class="container">
@@ -205,17 +150,16 @@
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-6 m-t">
-					<form class="form-horizontal pull-right" action="../searchJournal" method="get"
-						id="top-search-form" role="search">
+					<form class="form-horizontal pull-right" action="../searchJournal"
+						method="get" id="top-search-form" role="search">
 						<div class="form-group">
 							<div class="col-sm-10">
 								<div class="input-group">
 									<input type="text" placeholder="Search.." id="keyword"
 										name="keyword" pattern=".{4,40}" required
-										title="4 to 40 characters" autocomplete="on"
-										class="srch_area"> <span class="input-group-btn">
-										<input type="submit" value="Go" name="search"
-										class="btn btn-info srch_btn">
+										title="4 to 40 characters" autocomplete="on" class="srch_area">
+									<span class="input-group-btn"> <input type="submit"
+										value="Go" name="search" class="btn btn-info srch_btn">
 									</span>
 								</div>
 							</div>
@@ -229,216 +173,44 @@
 	</div>
 	<!-- Srch Area -->
 	<!-- Page Content -->
-	<div class="container bg-white">
-		<!-- Marketing Icons Section, row -->
-		<div class="myFlex">
-			<div class="panel panel-default" style="height: 450px">
-				<h3 align="left" style="color: red" class="panel-heading">
-					<i><img alt="" src="../assets/world_icon.png"></i>
-					NOFITICATIONS
-				</h3>
-				<ul class="nofi-list list-unstyled equal-height panel-body"
-					style="list-style: none;">
-					<li class="row nofi-li-grid col-xs-12 col-md-12">
-						<div>
-							<span style="color: red; font-weight: bold;">></span> <a
-								title="item 1" href="#">nofitication item 1</a>
-						</div>
-					</li>
-					<li class="row nofi-li-grid col-xs-12 col-md-12">
-						<div>
-							<span style="color: red; font-weight: bold;">></span> <a
-								title="item 2" href="#">nofitication item 2</a>
-						</div>
-					</li>
-				</ul>
-				<a href="#" class="btn btn-default btn-panel myButton" type="button">Xem
-					Thêm</a>
-			</div>
-			<div class="panel panel-default" style="height: 450px">
-				<h3 align="left" style="color: red" class="panel-heading">
-					<i><img alt="" src="../assets/book_icon.png"></i> Free &amp;
-					SCIENTIFIC JOURNALS
-				</h3>
-				<ul class="nofi-list list-unstyled equal-height panel-body"
-					style="list-style: none;">
-					<li class="row nofi-li-grid col-xs-12 col-md-12">
-						<div>
-							<span style="color: red; font-weight: bold;">></span> <a
-								title="item 1" href="#">SCIENTIFIC JOURNALS item 1</a>
-						</div>
-						<div>
-							<p>DateTime MM:DD-DD, YYYY City, Country</p>
-						</div>
-					</li>
-					<li class="row nofi-li-grid col-xs-12 col-md-12">
-						<div>
-							<span style="color: red; font-weight: bold;">></span> <a
-								title="item 2" href="#">Free &amp; SCIENTIFIC JOURNALS item
-								2</a>
-						</div>
-						<div>
-							<p>DateTime MM:DD-DD, YYYY City, Country</p>
-						</div>
-					</li>
-				</ul>
-				<a href="#" class="btn btn-default btn-panel myButton" type="button">Xem
-					Thêm</a>
-			</div>
-			<div class="panel panel-default" style="height: 450px">
-				<h3 align="left" style="color: red" class="panel-heading">
-					<i><img alt="" src="../assets/event_icon.png"></i> EVENT
-				</h3>
-				<ul class="nofi-list list-unstyled equal-height panel-body"
-					style="list-style: none;">
-					<li class="row nofi-li-grid col-xs-12 col-md-12">
-						<div>
-							<p>
-								Nham to chuc san choi cho cac sinh vien, truong dai hoc SPKT gui
-								den cac ban sinh vien thu moi tham gia cuoc thi " <span><a
-									title="item 1" href="#">EVENT item 1</a></span>" ve cac linh vuc ky
-								thuat
-							</p>
-						</div>
-						<div>
-							<span style="color: red; font-weight: bold;">> <a
-								title="item 1" href="#">EVENT Information item 1</a></span>"
-						</div>
-					</li>
-				</ul>
-				<a href="#" class="btn btn-default btn-panel myButton" type="button">Xem
-					Thêm</a>
-			</div>
-		</div>
-		<!-- /.row -->
-		<!-- row -->
-		<!-- journals -->
-		<div class="bg_white ">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 m-t m-b  journals">
-						<div class="panel panel-primary equal-height">
-							<div class="panel-heading">
-								<h3 class="panel-title">Journals by Subject</h3>
-							</div>
-							<div class="panel-body">
-								<ul class='list-inline'>
-									<li class="col-xs-12 col-md-6"><a
-										title="Agri, Food & Aqua" href="#">Nông Nghiệp</a></li>
-									<li class="col-xs-12 col-md-6"><a title="Biochemistry"
-										href="#">Hóa Sinh</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Business & Management" href="#">Quản Lý Kinh Doanh</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Chemical Engineering" href="#">Kỹ Thuật Hóa Học</a></li>
-									<li class="col-xs-12 col-md-6"><a title="Chemistry"
-										href="#">Chemistry</a></li>
-									<li class="col-xs-12 col-md-6"><a title="Clinical"
-										href="#">Y Học Thực Hành</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Earth & Environmental Sciences" href="#">Trái Đất &
-											Môi Trường</a></li>
-									<li class="col-xs-12 col-md-6"><a title="Engineering"
-										href="#">Kỹ Thuật</a></li>
-									<li class="col-xs-12 col-md-6"><a title="General Science"
-										href="#">Khoa Học Tổng Hợp</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Genetics & Molecular Biology" href="#">Di Truyền &
-											Sinh Học Phân Tử</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Immunology & Microbiology" href="#">Miễn Dịch & Vi
-											Sinh Vật học</a></li>
-									<li class="col-xs-12 col-md-6"><a title="Informatics"
-										href="#">Tin Học</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Nursing & Health Care" href="#">Điều Dưỡng & Chăm
-											Sóc Sức Khỏe</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Material Sciences" href="#">Khoa Học Vật Liệu</a></li>
-									<li class="col-xs-12 col-md-6"><a title="Mathematics"
-										href="#">Toán Học</a></li>
-									<li class="col-xs-12 col-md-6"><a title="Medical" href="#">Y
-											Khoa</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Neuroscience & Psychology" href="#"> Khoa Học Thần
-											Kinh & Tâm lý Học</a></li>
-									<li class="col-xs-12 col-md-6"><a title="Physics" href="#">Vật
-											Lý</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Social & Political Sciences" href="#">Khoa học Xã
-											hội & Chính trị</a></li>
-									<li class="col-xs-12 col-md-6"><a
-										title="Veterinary Sciences" href="#">Thú Y</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
 
-					<!-- journals by subject-->
-					<!-- Conferences by Subject -->
-					<div
-						class="col-xs-12 col-sm-4 col-md-4 col-lg-4 m-t m-b conferences">
-						<div class="panel panel-info">
-							<div class="panel-heading">
-								<h3 class="panel-title">Conferences by Subject</h3>
-							</div>
-							<div class="panel-body equal-height-1">
-								<ul class="list-unstyled">
-									<li><a
-										href="http://www.omicsonline.org/pharma-conferences.php"
-										title="Click here">Pharmaceutical Sciences</a></li>
-									<li><a
-										href="http://www.omicsonline.org/pharmaceutical-marketing-conferences.php"
-										title="Click here">Pharma Marketing &amp; Industry</a></li>
-									<li><a
-										href="http://www.omicsonline.org/agri-food-aqua-conferences.php"
-										title="Click here">Agri, Food &amp; Aqua</a></li>
-									<li><a
-										href="http://www.omicsonline.org/nutrition-conferences.php"
-										title="Click here">Nutrition</a></li>
-									<li><a
-										href="http://www.omicsonline.org/materialsscience-conferences.php"
-										title="Click here">Physics &amp; Materials Science</a></li>
-									<li><a
-										href="http://www.omicsonline.org/environmental-science-conferences.php"
-										title="Click here">Environmental Science</a></li>
-									<li><a
-										href="http://www.omicsonline.org/engineering-conferences.php"
-										title="Click here">EEE &amp; Engineering</a></li>
-									<li><a
-										href="http://www.omicsonline.org/veterinary-conferences.php"
-										title="Click here">Veterinary</a></li>
-									<li><a
-										href="http://www.omicsonline.org/chemicalengineering-conferences.php"
-										title="Click here">Chemical Engineering</a></li>
-									<li><a
-										href="http://www.omicsonline.org/nanotechnology-conferences.php"
-										title="Click here">Nanotechnology</a></li>
-									<li><a
-										href="http://www.conferenceseries.com/business-management-meetings/"
-										target="_blank" title="Click here">Business Management</a></li>
-									<li><a
-										href="http://www.conferenceseries.com/massmedia-meetings/"
-										target="_blank" title="Click here">Massmedia</a></li>
-									<li><a
-										href="http://www.omicsonline.org/geology-earth-science-conferences.php"
-										title="Click here">Geology &amp; Earth science</a></li>
-									<li><a
-										href="http://www.omicsonline.org/petroleum-conferences.php"
-										title="Click here">Petroleum</a></li>
-									<li><a
-										href="http://www.omicsonline.org/dermatology-conferences.php"
-										title="Click here">Dermatology</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
+	<!-- Latest Research Reports -->
+	<div class="container bg-white">
+		<div class="panel panel-default panel-teal latst_rsch_repts">
+			<div class="panel-heading">
+				<h3 class="panel-title">Result</h3>
+			</div>
+			<div class="panel-body">
+				<ul class="media-list">
+					<c:if test="${applicationScope['checksearch'] == true}">
+						<c:forEach items="${applicationScope['listjournal']}" var="jo">
+							<li class="media">
+								<div class="media-left media-middle">
+									<i class="fa fa-file-text fa-3x media-object text-muted"
+										aria-hidden="true"></i>
+								</div>
+								<div class="media-body">
+									<h5 class="media-heading">
+										<a title="Editor Note" href="../journals/${jo.getID()}"
+											target="_blank">${jo.getName()}</a>
+									</h5>
+									<p>
+										<small>${jo.getSubName()}</small><span
+											class="bg-success pull-right"><a
+											title="Journal of Women's Health Care"
+											href="http://www.omicsgroup.org/journals/ArchiveJWHC/currentissue-womens-health-care-open-access.php"
+											class="fr" target="_blank">${jo.getSubName()}</a> </span>
+									</p>
+								</div>
+							</li>
+						</c:forEach>
+					</c:if>
+				</ul>
 			</div>
 		</div>
-		<!-- /.row -->
-		<!-- row -->
-		<!-- Latest Research Reports -->
+	</div>
+	<!-- row -->
+	<div class="container bg-white">
 		<div class="bg_white p-tb-20">
 			<div class="container">
 				<div class="row">
@@ -955,7 +727,6 @@
 					</div>
 				</div>
 			</div>
-
 		</footer>
 		<div class="scroll-top-wrapper">
 			<span class="scroll-top-inner"> <i
@@ -982,7 +753,7 @@
 	<script type="text/javascript" src="../js/slick/slick.min.js"></script>
 	<script type="text/javascript">
 		$('#myCarousel').slick({
-			dots : true,		
+			dots : true,
 			infinite : true,
 			speed : 300,
 			slidesToShow : 1,

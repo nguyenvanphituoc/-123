@@ -59,22 +59,23 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="mynav nav navbar-nav navbar-right">
-					<li><a href="index.jsp" title="Home"> <span class="icon"><i
-								class="fa fa-home" title="Trang Chủ"></i></span> <span>Trang Chủ</span>
+				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
+					<li class="home "><a  href="index.jsp" title="Home"> <span
+							class="icon"><i class="glyphicon glyphicon-home"
+								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li class="selected"><a href="register.jsp" title="Đăng Ký">
-							<span class="icon"><i class="fa fa-share-alt active"
-								title="Join Us"></i></span> <span>Đăng Ký</span>
+					<li class="register selected"><a class="" href="register.jsp" title="Đăng Ký"> <span
+							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
+							<span>Đăng Ký</span>
 					</a></li>
 
-					<li><a href="contact.jsp" title="Liên Hệ"> <span
+					<li class="contact"><a class="" href="contact.jsp" title="Liên Hệ"> <span
 							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
 								Hệ</span>
 					</a></li>
 
-					<li><a href="signin.jsp" title="Đăng Nhập"> <span
-							class="icon"><i class="fa fa-user" title="Đăng Nhập"></i></span>
+					<li class="login"><a class="" href="signin.jsp" title="Đăng Nhập"> <span
+							class="icon "><i class="fa fa-user" title="Đăng Nhập"></i></span>
 							<span>Đăng Nhập</span>
 					</a></li>
 				</ul>
@@ -209,7 +210,7 @@
 								style="margin: auto; padding: auto;"></span>
 							<div class="clearfix"></div>
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label class="col-md-4 control-label lb" for="country">Country:
 								<span>*</span>
 							</label>
@@ -486,7 +487,7 @@
 
 							</div>
 							<div class="clearfix"></div>
-						</div>
+						</div> -->
 						<div class="form-group">
 							<label class="col-md-4 control-label lb" for="class">Register
 								is for : <span>*</span>
@@ -494,19 +495,19 @@
 							<div class="row col-md-8 radio_group">
 								<div class="col-md-3">
 									<label class="radio"><input type="radio" name="class"
-										value="Editor" required> Editor </label>
+										value="1" required> Editor </label>
 								</div>
 								<div class="col-md-3">
 									<label class="radio"><input type="radio" name="class"
-										value="Author"> Author </label>
+										value="2"> Author </label>
 								</div>
 								<div class="col-md-3">
 									<label class="radio"><input type="radio" name="class"
-										value="Reviewer"> Reviewer </label>
+										value="3"> Reviewer </label>
 								</div>
 								<div class="col-md-3">
 									<label class="radio"><input type="radio" name="class"
-										value="Reader"> Reader </label>
+										value="4"> Reader </label>
 								</div>
 							</div>
 							<div class="clearfix"></div>
@@ -525,8 +526,7 @@
 						<div class="row">
 							<div class="btn col-md-3 pull-right">
 								<input id="submit_youraccount" class=" btn-default"
-									type="submit" title="continue" value="Tiếp tục >>"
-									name="seccond">
+									type="submit" title="continue" value="Tiếp tục >>">
 							</div>
 						</div>
 					</form>

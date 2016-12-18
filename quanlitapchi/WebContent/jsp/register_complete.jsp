@@ -57,22 +57,23 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="mynav nav navbar-nav navbar-right">
-					<li><a href="index.jsp" title="Home"> <span class="icon"><i
-								class="fa fa-home" title="Trang Chủ"></i></span> <span>Trang Chủ</span>
+				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
+					<li class="home "><a  href="index.jsp" title="Home"> <span
+							class="icon"><i class="glyphicon glyphicon-home"
+								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li  class="selected"><a href="register.jsp" title="Đăng Ký"> <span
-							class="icon"><i class="fa fa-share-alt active"
-								title="Join Us"></i></span> <span>Đăng Ký</span>
+					<li class="register selected"><a class="" href="register.jsp" title="Đăng Ký"> <span
+							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
+							<span>Đăng Ký</span>
 					</a></li>
 
-					<li><a href="contact.jsp" title="Liên Hệ"> <span
+					<li class="contact"><a class="" href="contact.jsp" title="Liên Hệ"> <span
 							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
 								Hệ</span>
 					</a></li>
 
-					<li><a href="signin.jsp" title="Đăng Nhập"> <span
-							class="icon"><i class="fa fa-user" title="Đăng Nhập"></i></span>
+					<li class="login"><a class="" href="signin.jsp" title="Đăng Nhập"> <span
+							class="icon "><i class="fa fa-user" title="Đăng Nhập"></i></span>
 							<span>Đăng Nhập</span>
 					</a></li>
 				</ul>
@@ -151,9 +152,15 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<form class="form-horizontal" action="" method="post" role="form">
+					<form class="form-horizontal" action="signin.jsp" method="GET" role="form">
+						<% request.setCharacterEncoding("UTF-8"); %>
+						<%@page import="model.User" %>
+						<%
+								User us = (User) session.getAttribute("user"); 
+								String email = (us != null && us.getuEmail() != null && us.getuEmail() != "")?us.getuEmail():"#####";
+						%>
 						<div class="row">
-							<p class="h6 mess">Check your e-mail for a message to verify
+							<p class="h6 mess">Check your e-mail <%=email%> for a message to verify
 								your registration. This message contains your password, which
 								you need to login. Note that Editorial Manager may have assigned
 								a different Username if the one you selected is already in use.

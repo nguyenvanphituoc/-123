@@ -14,6 +14,8 @@
 </head>
 <%= "show value" %><%! %>
 <body>
+<table>
+</table>
 	<div
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable"
 		tabindex="-1" role="dialog" aria-describedby="100"

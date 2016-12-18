@@ -11,5 +11,7 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="lib" path="D:/taglibs-standard-impl-1.2.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Program Files (x86)/MySQL/Connector.J 5.1/mysql-connector-java-5.1.39-bin.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Web/New folder/activation.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Web/New folder/mail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -60,38 +60,34 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="mynav nav navbar-nav navbar-right">
-					<li><a class="animsition-link" href="index.jsp" title="Home">
-							<span class="icon"><i class="fa fa-home" title="Trang Chủ"></i></span>
-							<span>Trang Chủ</span>
+				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
+					<li class="home "><a href="index.jsp" title="Home"> <span
+							class="icon"><i class="glyphicon glyphicon-home"
+								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li><a class="animsition-link" href="register.jsp"
+					<li class="register"><a class="" href="register.jsp"
 						title="Đăng Ký"> <span class="icon"><i
-								class="fa fa-share-alt active" title="Join Us"></i></span> <span>Đăng
+								class="fa fa-share-alt" title="Join Us"></i></span> <span>Đăng
 								Ký</span>
 					</a></li>
 
-					<li class='selected'><a class="animsition-link " href="contact.jsp"
+					<li class="contact selected"><a class="" href="contact.jsp"
 						title="Liên Hệ"> <span class="icon"><i
 								class="fa fa-phone"></i></span> <span>Liên Hệ</span>
 					</a></li>
 
-					<li><a class="animsition-link" href="signin.jsp"
-						title="Đăng Nhập"> <span class="icon"><i
+					<li class="login"><a class="" href="signin.jsp"
+						title="Đăng Nhập"> <span class="icon "><i
 								class="fa fa-user" title="Đăng Nhập"></i></span> <span>Đăng Nhập</span>
 					</a></li>
-					<li class="dropdown selected"><a href="#"
+					<li class="dropdown mypage"><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown">MyPage <b
 							class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<ins>Profile</ins>
-							<li><a href="portfolio-1-col.html">Profile</a></li>
-							<ins>Message</ins>
-							<li class=""><a href="portfolio-4-col.html">Message</a></li>
-							<ins>Journal</ins>
-							<li class=""><a href="portfolio-4-col.html">Recent</a></li>
+							<li><a href="#">Home</a></li>
 							<ins>Other</ins>
-							<li class=""><a href="portfolio-4-col.html">Sign out</a></li>
+							<li class=""><a href="../logout">Sign out</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -569,11 +565,70 @@
 	<!-- /.container -->
 
 	<!-- jQuery -->
-	<script src="../js/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-	<script src="../js/main.js"></script>
+	<script src="../js/jquery.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- isLogin , khi đang ở file w3data.js gọi đến file jsp-->
+	<%@ page import="model.User"%>
+	<%!public String getURL(int i) {
+		String url;
+		switch (i) {
+			case 1 :
+				url = "editor.jsp";
+				break;
+
+			case 2 :
+				url = "author.jsp";
+				break;
+
+			case 3 :
+				url = "reviewer.jsp";
+				break;
+
+			case 4 :
+				url = "reader.jsp";
+				break;
+			default :
+				url = "admin.jsp";
+		}
+
+		return url;
+	}%>
+	<%
+		User us = (User) session.getAttribute("user");
+		if (us == null || (us.getUsername() == null) || (us.getUsername() == "")) {
+	%>
+	<script type="text/javascript">
+		var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];
+		$headernav.attributes["noLogin"].value = 1;
+	</script>
+	<%
+		} else {
+	%>
+	<script type="text/javascript">
+			var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];
+			$headernav.attributes["noLogin"].value = 0;
+			var li = $headernav.children[$headernav.children.length-1];
+			// đổi tên Mypage thành tên của user			
+			var a = li.querySelector("a");
+			var innerText = "<%=us.getuFirstname() + " " + us.getuLastname() + " "%> </span> <b class='caret'></b>";
+			a.innerHTML  = "<span class='icon'><i class='glyphicon glyphicon-user' title='Trang Cá Nhân'></i></span> <span>"
+			a.innerHTML += innerText;
+			a.innerHTML +="";
+			// gán sự kiện cho btn home của user
+			var ul = li.querySelector("ul");
+			var allA = ul.querySelectorAll("a");
+			allA.forEach(function(item, index) {
+				if(item.innerText === "Home"){
+					item.setAttribute("href", <%=getURL(us.getuClass())%>);
+				}
+			})
+			</script>
+	<%
+		}
+	%>
+	<script src="../js/main.js"></script>
 
 </body>
 
