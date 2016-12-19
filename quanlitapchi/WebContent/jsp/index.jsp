@@ -95,7 +95,7 @@
 							<ins>Profile</ins>
 							<li class=""><a href="../logout" value="Home Page">Home</a></li>
 							<ins>Other</ins>
-							<li class=""><a href="../logout"  value="Sign Out">Sign out</a></li>
+							<li class=""><a href="logout"  value="Sign Out">Sign out</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -205,7 +205,7 @@
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-6 m-t">
-					<form class="form-horizontal pull-right" action="../searchJournal" method="get"
+					<form class="form-horizontal pull-right" action="searchJournal" method="get"
 						id="top-search-form" role="search">
 						<div class="form-group">
 							<div class="col-sm-10">
@@ -214,8 +214,8 @@
 										name="keyword" pattern=".{4,40}" required
 										title="4 to 40 characters" autocomplete="on"
 										class="srch_area"> <span class="input-group-btn">
-										<input type="submit" value="Go" name="search"
-										class="btn btn-info srch_btn">
+										<button type="submit" value="Go" name="search"
+										class="btn btn-info srch_btn">Go</button>
 									</span>
 								</div>
 							</div>
@@ -1022,7 +1022,7 @@
 	}%>
 	<%
 		User us = (User) session.getAttribute("user");
-		if (us == null || (us.getUsername() == null) || (us.getUsername() == "")) {
+		if (us == null || (us.getID() == null) || (us.getID() == "")) {
 	%>
 	<script type="text/javascript">
 		var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];

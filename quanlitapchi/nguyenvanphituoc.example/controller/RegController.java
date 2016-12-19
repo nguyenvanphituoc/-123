@@ -52,8 +52,6 @@ public class RegController extends HttpServlet {
 		try{
 			DAO register = new DAO();			
 			int result = register.register(user, error); //Calling authenticateUser function
-			request.getSession().setAttribute("user", user);
-			getServletContext().setAttribute("user", user);
 			if(result > 0){
 				request.setAttribute("email", user.getuEmail());
 				getServletContext().getRequestDispatcher("/EmailSendingServlet").forward(

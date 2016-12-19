@@ -12,7 +12,15 @@ public class User {
 	private int	   uActive;
 
 	public User(){
-		
+		this.username = null;
+		this.password = null;
+		this.uFirstname = null;
+		this.uLastname = null;
+		this.uClass = -1;
+		this.uEmail = null;
+		this.uActive = -1;
+		this.id 	= null;
+		this.uhashCode = null;
 	}
 	public User(String username, String password, String uFirstname, 
 			String uLastname, String uEmail, int    uClass, int	   uActive, String id, String uhashCode){

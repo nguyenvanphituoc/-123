@@ -28,26 +28,26 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>controller.LoginControll</servlet-name>
-    <url-pattern>/login</url-pattern>
+    <url-pattern>/jsp/login</url-pattern>
   </servlet-mapping>
   <servlet>
     <display-name>file upload</display-name>
-    <servlet-name>controller.FileUploadController</servlet-name>
-    <servlet-class>controller.FileUploadController</servlet-class>
+    <servlet-name>controller.SubmitManuscriptController</servlet-name>
+    <servlet-class>controller.SubmitManuscriptController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>controller.FileUploadController</servlet-name>
+    <servlet-name>controller.SubmitManuscriptController</servlet-name>
     <url-pattern>/jsp/uploadfile</url-pattern>
   </servlet-mapping>
-  <servlet>
+ <servlet>
     <display-name>search</display-name>
     <servlet-name>controller.SearchController</servlet-name>
     <servlet-class>controller.SearchController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>controller.SearchController</servlet-name>
-    <url-pattern>/searchJournal</url-pattern>
-  </servlet-mapping>
+    <url-pattern>/jsp/searchJournal</url-pattern>
+  </servlet-mapping> 
   <servlet>
     <display-name>Register</display-name>
     <servlet-name>controller.RegController</servlet-name>
@@ -64,7 +64,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>controller.LogoutController</servlet-name>
-    <url-pattern>/logout</url-pattern>
+    <url-pattern>/jsp/logout</url-pattern>
   </servlet-mapping>
   <servlet>
     <display-name>EmailSendingServlet</display-name>

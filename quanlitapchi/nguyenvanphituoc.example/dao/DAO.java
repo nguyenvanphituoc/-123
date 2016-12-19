@@ -13,7 +13,7 @@ import model.Journal;
 import model.User;
 import dbprovider.DBConnection;
 public class DAO {
-	public String authenticateUser(User loginBean)
+	public String authenticateUser(User  loginBean)
 	{
 
 		String userName = loginBean.getUsername(); //Keeping user entered values in temporary variables.
@@ -63,13 +63,20 @@ public class DAO {
 			{	
 				return "SUCCESS"; ////If the user entered values are already present in database, which means user has already registered so I will return SUCCESS message.
 			}
-			//			}
+			else{
+				loginBean.setuhashCode(null);
+				loginBean.setID(null);
+				loginBean.setuActive(-1);
+				loginBean.setuFirstname(null);
+				loginBean.setuLastname(null);
+				loginBean.setuuEmail(null);
+				loginBean.setuClass(-1);
+			}
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
 		}
-		loginBean.setUsername(userNameDB);
 		return "Invalid user credentials. Please check your username or passwd. \n Make sure you chose correct role"; // Just returning appropriate message otherwise
 	}
 	public int register(User Bean, StringBuilder error){
@@ -96,6 +103,38 @@ public class DAO {
 		}
 		return 0;
 	}
+	public int manuscriptJournal(Journal jo, ArrayList<String> author, ArrayList<String> autDes, StringBuilder error){
+		Connection con = null;
+		Statement statement = null;
+		int resultSet = 0;
+		try{
+			con = DBConnection.createConnection(); //establishing connection
+			statement = con.createStatement(); //Statement is used to write queries. Read more about it.
+			resultSet = statement.executeUpdate("INSERT INTO `qltc`.`journal` (`joName`, `joSubmit`, `joStt`, `subID`, `joComent`, `jobyKeywd`) VALUES " +
+					"(CAST('"+jo.getName()+"' as char character set utf8), '" + jo.getSubmitDate() + "', " + jo.getStatus() + "," + 
+					jo.getSubID() + ",'" + jo.getComent() + "', '"+ jo.getKeywd()  +"')");
+			ResultSet rs= statement.executeQuery("select  jo.joID as id from journal jo order by jo.joID desc limit 1");
+			//get id inserted nearly
+			rs.next(); int joID = rs.getInt("id");
+			
+			int n = author.size();
+			for(int i = 0; i <= n; i++){
+				resultSet = statement.executeUpdate("INSERT INTO `qltc`.`joandaut` (`idUser`, `joID`, `byDescription`) VALUES  ('"+
+				author.get(i)+"','" + joID + "','" + autDes.get(i)+ "')");
+			}
+
+			// send mail
+			if(resultSet > 0){
+				return 1;
+			}
+		}
+		catch(SQLException e)
+		{
+			error.append(e.getMessage());
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	public ArrayList<Journal> search(String query, StringBuilder error){
 		Connection con = null;
 		Statement statement = null;
@@ -103,11 +142,10 @@ public class DAO {
 		try{
 			String myquery = "%"+query + "%";
 			con = DBConnection.createConnection(); //establishing connection
-			String sql = "select distinct jo.joID as id, jo.joName as name, jo.joSubmit as submitdate, jo.joStt as status, jo.joComent as coment, jo.subID as subid, "+
-					"sj.subName as subjectname "+
-					"from `qltc`.`journal` jo left outer join `qltc`.`lskeywd` ls "+
-					"on  jo.joID = ls.joID inner join subject sj on jo.subID = sj.subID "+
-					"where jo.joName like '"+myquery+"' COLLATE utf8_unicode_ci  or ls.byKeywd like '"+myquery+"' COLLATE utf8_unicode_ci  or jo.joComent like '"+myquery+"' COLLATE utf8_unicode_ci or  sj.subName like '"+query+"' COLLATE utf8_unicode_ci ;";
+			String sql = "select distinct jo.joID as id, jo.joName as name, jo.joSubmit as submitdate, jo.joStt as status,  "+
+					"jo.joComent as coment, jo.subID as subid, jo.jobyKeywd as keywd, sj.subName as subjectname "+
+					"from `qltc`.`journal` jo  inner join subject sj on jo.subID = sj.subID "+
+					"where match(jo.jobyKeywd, jo.joName, jo.joComent) against('"+myquery+"' in natural language mode) ;";
 			statement = con.createStatement(); //Statement is used to write queries. Read more about it.
 			ResultSet rs= statement.executeQuery(sql);			
 			while(rs.next()){
@@ -119,8 +157,8 @@ public class DAO {
 				int subID =  rs.getInt("subid");
 				String subName = rs.getString("subjectname");
 				String joComent = rs.getString("coment") ;
-
-				Journal jo = new Journal(joID, joName, joSubmit, joStt, subID, subName, joComent);
+				String keywd = rs.getString("keywd");
+				Journal jo = new Journal(joID, joName, joSubmit, joStt, subID, subName, joComent, keywd);
 
 				list.add(jo);
 			}

@@ -8,8 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-
-<title>Đọc Giả</title>
+<%		User us = (User) session.getAttribute("user"); %>
+<title>Biên Tập Viên ${applicationScope['user'].getuLastname() }</title>
 
 <!-- Bootstrap Core CSS -->
 
@@ -55,7 +55,7 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
-					<li class="home selected"><a href="index.jsp" title="Home">
+					<li class="home"><a href="index.jsp" title="Home">
 							<span class="icon"><i class="glyphicon glyphicon-home"
 								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
@@ -81,7 +81,7 @@
 							<ins>Profile</ins>
 							<li><a href="#">Home</a></li>
 							<ins>Other</ins>
-							<li class=""><a href="../logout">Sign out</a></li>
+							<li class=""><a href="logout">Sign out</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -93,20 +93,20 @@
 	<div class="container">
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-12 col-sm-12 col-md-12">
 				<h1 class="page-header">
-					Tập Chí Khoa Học Kỹ Thuật <small>Reader</small>
+					Tập Chí Khoa Học Kỹ Thuật <small>Editor</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="index.jsp">Home</a></li>
-					<li class="active">Reader</li>
+					<li class="active">Editor</li>
 				</ol>
 			</div>
 		</div>
 	</div>
 	<div id="user_content">
 		<div class="container" id="editor_room">
-			<div class="float-left-area  col-md-2 mycollapse">
+			<div class="float-left-area  col-md-2 col-sm-2 mycollapse">
 				<div class=""></div>
 				<div class="inner-left">
 					<button type="button"
@@ -118,11 +118,11 @@
 					<!-- Sidebar -->
 					<div id="sidebar-wrapper">
 						<ul class="sidebar-nav" id="nav-bar-collapse">
-							<li><a href="person_homepage.jsp"
+							<li class="actived"><a href="person_homepage.jsp"
 								class="glyphicon glyphicon-user">Profile</a></li>
 							<li><a href="person_message.jsp"
 								class="glyphicon glyphicon-envelope">Message</a></li>
-							<li class=" actived"><a href="editor_journal.jsp"
+							<li ><a href="editor_journal.jsp"
 								class="glyphicon glyphicon-book">Journal</a></li>
 							<li><a href="person_other.jsp"
 								class="glyphicon glyphicon-asterisk">Other</a></li>
@@ -131,7 +131,7 @@
 				</div>
 			</div>
 			<!-- Page Content -->
-			<div class="float-center-area  col-md-10" id="center"></div>
+			<div class="float-center-area  col-md-10 col-sm-10" id="center"></div>
 			<!-- /#page-content-wrapper -->
 			<div class="clear-floated"></div>
 			<hr>
@@ -176,8 +176,8 @@
 	<script>
 		initSample();
 	</script>
-		 manager_task  
-	<script type="text/javascript" src="../js/manager_task.js"></script> -->
+		 manager_task   -->
+	<script type="text/javascript" src="../js/manager_task.js"></script>
 
 	<!-- isLogin , khi đang ở file w3data.js gọi đến file jsp-->
 	<%@ page import="model.User"%>
@@ -206,8 +206,7 @@
 		return url;
 	}%>
 	<%
-		User us = (User) session.getAttribute("user");
-		if (us == null || (us.getUsername() == null) || (us.getUsername() == "")) {
+		if (us == null || (us.getID() == null) || (us.getID() == "")) {
 	%>
 	<script type="text/javascript">
 		var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];
@@ -270,8 +269,6 @@
 		}
 		$(document).ready(Start);
 	</script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../js/bootstrap.min.js"></script>
 
 </body>
 

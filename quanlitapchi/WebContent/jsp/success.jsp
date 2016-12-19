@@ -85,7 +85,7 @@
 							<ins>Profile</ins>
 							<li><a href="#">Home</a></li>
 							<ins>Other</ins>
-							<li class=""><a href="../logout">Sign out</a></li>
+							<li class=""><a href="logout">Sign out</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -142,7 +142,7 @@
 						%>
 						Welcome
 						<%=user.getuFirstname().toString() + " " + user.getuLastname().toString() + " "%><a
-							href='../logout'>Log out</a>
+							href='logout'>Log out</a>
 						<%
 							}
 						%>
@@ -490,7 +490,7 @@
 	}%>
 	<%
 		User us = (User) session.getAttribute("user");
-		if (us == null || (us.getUsername() == null) || (us.getUsername() == "")) {
+		if (us == null || (us.getID() == null) || (us.getID() == "")) {
 	%>
 	<script type="text/javascript">
 		var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];

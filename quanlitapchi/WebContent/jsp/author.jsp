@@ -8,37 +8,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-
-<title>Đọc Giả</title>
+<%User us = (User) session.getAttribute("user"); %>
+<title>Tác Giả <%= us.getuLastname() %></title>
 
 <!-- Bootstrap Core CSS -->
 
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/bootstrap-social.css" rel="stylesheet"
 	type="text/css">
-<link href="../css/main.css" rel="stylesheet">
-
-
-<!-- Custom CSS -->
-<link href="../css/modern-business.css" rel="stylesheet">
-
+<!-- text editor -->
+<link rel="stylesheet" href="texteditor/samples.css">
+<link rel="stylesheet" href="texteditor/neo.css">
+<!-- manager_task -->
+<link href="../css/manager_task.css" rel="stylesheet">
 <!-- Custom Fonts -->
-
 <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
-<!-- script -->
-<!-- <script type="text/javascript" src="../js/bootstrap-select.min.js"></script> -->
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!-- main css -->
+<link href="../css/main.css" rel="stylesheet">
 
 
 </head>
 
-<body class="reader user">
+<body class="editor user">
 
 	<!-- background -->
 	<div class="background-allsite">
@@ -63,23 +55,24 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
-					<li class="home selected"><a  href="index.jsp" title="Home"> <span
+					<li class="home"><a href="index.jsp" title="Home"> <span
 							class="icon"><i class="glyphicon glyphicon-home"
 								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li class="register"><a class="" href="register.jsp" title="Đăng Ký"> <span
-							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
-							<span>Đăng Ký</span>
+					<li class="register"><a class="" href="register.jsp"
+						title="Đăng Ký"> <span class="icon"><i
+								class="fa fa-share-alt" title="Join Us"></i></span> <span>Đăng
+								Ký</span>
 					</a></li>
 
-					<li class="contact"><a class="" href="contact.jsp" title="Liên Hệ"> <span
-							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
-								Hệ</span>
+					<li class="contact"><a class="" href="contact.jsp"
+						title="Liên Hệ"> <span class="icon"><i
+								class="fa fa-phone"></i></span> <span>Liên Hệ</span>
 					</a></li>
 
-					<li class="login"><a class="" href="signin.jsp" title="Đăng Nhập"> <span
-							class="icon "><i class="fa fa-user" title="Đăng Nhập"></i></span>
-							<span>Đăng Nhập</span>
+					<li class="login"><a class="" href="signin.jsp"
+						title="Đăng Nhập"> <span class="icon "><i
+								class="fa fa-user" title="Đăng Nhập"></i></span> <span>Đăng Nhập</span>
 					</a></li>
 					<li class="dropdown mypage selected"><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown">MyPage <b
@@ -96,25 +89,25 @@
 		</div>
 		<!-- /.container -->
 	</nav>
+	<!-- Navigation End-->
 	<div class="container">
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-12 col-sm-12 col-md-12">
 				<h1 class="page-header">
-					Tập Chí Khoa Học Kỹ Thuật <small>Reader</small>
+					Tập Chí Khoa Học Kỹ Thuật <small>Author</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="index.jsp">Home</a></li>
-					<li class="active">Reader</li>
+					<li class="active">Author</li>
 				</ol>
 			</div>
 		</div>
 	</div>
 	<div id="user_content">
-		<!-- Navigation End-->
-		<div class="container">
-
-			<div class="float-left-area  col-md-2">
+		<div class="container" id="editor_room">
+			<div class="float-left-area  col-md-2 col-sm-2 mycollapse">
+				<div class=""></div>
 				<div class="inner-left">
 					<button type="button"
 						class="sidebar-toggle glyphicon glyphicon-menu-down">
@@ -125,11 +118,11 @@
 					<!-- Sidebar -->
 					<div id="sidebar-wrapper">
 						<ul class="sidebar-nav" id="nav-bar-collapse">
-							<li class=" actived"><a href="person_homepage.jsp"
+							<li class="actived"><a href="person_homepage.jsp"
 								class="glyphicon glyphicon-user">Profile</a></li>
 							<li><a href="person_message.jsp"
 								class="glyphicon glyphicon-envelope">Message</a></li>
-							<li><a href="person_journal.jsp"
+							<li><a href="editor_journal.jsp"
 								class="glyphicon glyphicon-book">Journal</a></li>
 							<li><a href="person_other.jsp"
 								class="glyphicon glyphicon-asterisk">Other</a></li>
@@ -138,7 +131,7 @@
 				</div>
 			</div>
 			<!-- Page Content -->
-			<div class="float-center-area  col-md-6" id="center"></div>
+			<div class="float-center-area  col-md-10 col-sm-10" id="center"></div>
 			<!-- /#page-content-wrapper -->
 			<div class="clear-floated"></div>
 			<hr>
@@ -146,8 +139,8 @@
 			<footer>
 				<div class="footer_wraper_btm">
 					<div class="container">
-						<div class="row">
-							<div class="col-md-8" style="margin-top: 10px; color: #fff">
+						<div class="row" style="width: 100%">
+							<div class="col-md-7" style="margin-top: 10px; color: #fff">
 								<p class="footerNav">
 									Content of this site is vailable under <a rel="nofollow"
 										href="http://creativecommons.org/licenses/by/4.0/"
@@ -158,47 +151,7 @@
 										International</a> All Rights Reserved.
 								</p>
 							</div>
-							<div class="col-md-4 socialIc">
-								<div class="row margin-r-20">
-									<ul>
-										<li><a target="_blank" title="slideshare"
-											class="btn btn-social-icon btn-openid"
-											href="http://www.slideshare.net/OMICSPublishingGroup"> <span
-												class="fa fa-slideshare"></span></a></li>
-										<li><a title="Facebook"
-											class="btn btn-social-icon btn-facebook"
-											onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-facebook']);"
-											href="https://www.facebook.com/omics" target="_blank"><i
-												class="fa fa-facebook"></i></a></li>
-										<li><a title="Twitter"
-											class="btn btn-social-icon btn-twitter"
-											onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-twitter']);"
-											href="https://twitter.com/OMICSJournals" target="_blank"><i
-												class="fa fa-twitter"></i></a></li>
-										<li><a title="Google+"
-											class="btn btn-social-icon btn-google"
-											onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-google']);"
-											href="https://plus.google.com/+OmicsgroupOrg/"
-											target="_blank"><i class="fa fa-google-plus"></i></a></li>
-										<!-- <li> <a title="Pinterest" class="btn btn-social-icon btn-pinterest" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-pinterest']);" href="http://pinterest.com/omicspublishing/" target="_blank"><i class="fa fa-pinterest"></i></a> </li> -->
-										<li><a title="LinkedIn"
-											class="btn btn-social-icon btn-linkedin"
-											onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-linkedin']);"
-											href="http://www.linkedin.com/company/omics-publishing-group"
-											target="_blank"><i class="fa fa-linkedin"></i></a></li>
-										<li><a class="btn btn-social-icon btn-openid"
-											href="http://www.omicsonline.org/ror.xml"><span
-												title="Rss" class="fa fa-rss"></span></a></li>
-										<li><a
-											onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-tumblr']);"
-											class="btn btn-social-icon btn-google"
-											href="http://www.youtube.com/OMICSPublishingGroup"
-											target="_blank"><span title="Youtube"
-												class="fa fa-youtube"></span></a></li>
-										<!--<li> <a title="Flickr" class="btn btn-social-icon btn-flickr" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-flickr']);" href="http://www.flickr.com/photos/omics-publishing-group/" target="_blank"><i class="fa fa-flickr"></i></a></li>-->
-									</ul>
-								</div>
-							</div>
+
 						</div>
 					</div>
 				</div>
@@ -211,10 +164,21 @@
 		</div>
 	</div>
 	<!-- jQuery -->
-	<script src="../js/jquery.js"></script>	
-		<!-- Bootstrap Core JavaScript -->
+	<!-- sidebar -->
+	<script src="../js/jquery.js"></script>
+	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
-	
+	<!-- jquery 
+	<script src="../js/jquery-3.1.1.min.js"></script>
+		texteditor 
+	<script src="texteditor/ckeditor.js"></script>
+	<script src="texteditor/sample.js"></script>
+	<script>
+		initSample();
+	</script>
+		 manager_task   -->
+	<script type="text/javascript" src="../js/manager_task.js"></script>
+
 	<!-- isLogin , khi đang ở file w3data.js gọi đến file jsp-->
 	<%@ page import="model.User"%>
 	<%!public String getURL(int i) {
@@ -241,8 +205,7 @@
 
 		return url;
 	}%>
-	<%
-		User us = (User) session.getAttribute("user");
+	<%		
 		if (us == null || (us.getID() == null) || (us.getID() == "")) {
 	%>
 	<script type="text/javascript">
@@ -274,7 +237,7 @@
 	<%
 		}
 	%>
-	<script src="../js/main.js"></script>
+
 	<script type="text/javascript">
 		function Start() {
 			console.log("a");
@@ -305,7 +268,8 @@
 		}
 		$(document).ready(Start);
 	</script>
-
+	<!-- main.js -->
+	<script src="../js/main.js"></script>
 </body>
 
 </html>

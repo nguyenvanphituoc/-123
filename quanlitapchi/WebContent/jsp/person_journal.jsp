@@ -6,6 +6,7 @@
 	<ul class="nav nav-tabs" id="tab">
 		<li role="presentation" class="active"><a
 			href="person_journal1.jsp">Recent</a></li>
+		<li role="presentation"><a href="editor_room.jsp">Room</a></li>
 	</ul>
 	<div class="content">
 		<table class="table table-striped">

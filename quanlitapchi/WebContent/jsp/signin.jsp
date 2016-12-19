@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -121,7 +122,7 @@
 				</div>
 				<div class="col-md-6">
 					<form name="login" id="loginForm" class="form-horizontal"
-						action="../login" method="post" role="form">
+						action="login" method="post" role="form">
 						<div class="form-group">
 							<label class="col-md-4 control-label lb" for="username">User
 								Name: <span>*</span>
@@ -167,8 +168,9 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="form-group">
-							<span class="error col-md-12">${error}</span> <br>
-							<div class="clearfix"></div>
+								<span class="error col-md-12">${error}</span>
+								<br>
+								<div class="clearfix"></div>
 						</div>
 						<div class="row">
 							<p class="h6 mess">

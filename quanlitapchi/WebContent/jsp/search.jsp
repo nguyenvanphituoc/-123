@@ -150,16 +150,17 @@
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-6 m-t">
-					<form class="form-horizontal pull-right" action="../searchJournal"
-						method="get" id="top-search-form" role="search">
+					<form class="form-horizontal pull-right" action="searchJournal"
+						method="get" id="top-search-form" >
 						<div class="form-group">
 							<div class="col-sm-10">
 								<div class="input-group">
 									<input type="text" placeholder="Search.." id="keyword"
 										name="keyword" pattern=".{4,40}" required
 										title="4 to 40 characters" autocomplete="on" class="srch_area">
-									<span class="input-group-btn"> <input type="submit"
-										value="Go" name="search" class="btn btn-info srch_btn">
+									<span class="input-group-btn">
+										<button type="submit" value="Go" name="search"
+											class="btn btn-info srch_btn">Go</button>
 									</span>
 								</div>
 							</div>
@@ -175,15 +176,15 @@
 	<!-- Page Content -->
 
 	<!-- Latest Research Reports -->
-	<div class="container bg-white">
-		<div class="panel panel-default panel-teal latst_rsch_repts">
+	<div class="container bg-white  col-xs-12 col-md-9">
+		<div class="panel panel-default panel-teal  p-tb-20">
 			<div class="panel-heading">
 				<h3 class="panel-title">Result</h3>
 			</div>
 			<div class="panel-body">
 				<ul class="media-list">
-					<c:if test="${applicationScope['checksearch'] == true}">
-						<c:forEach items="${applicationScope['listjournal']}" var="jo">
+					<c:if test='${requestScope.checksearch != null || requestScope.checksearch == true}'>
+						<c:forEach items='${requestScope.listjournal}' var="jo">
 							<li class="media">
 								<div class="media-left media-middle">
 									<i class="fa fa-file-text fa-3x media-object text-muted"
@@ -195,7 +196,7 @@
 											target="_blank">${jo.getName()}</a>
 									</h5>
 									<p>
-										<small>${jo.getSubName()}</small><span
+										<small>${jo.getKeywd()}</small><span
 											class="bg-success pull-right"><a
 											title="Journal of Women's Health Care"
 											href="http://www.omicsgroup.org/journals/ArchiveJWHC/currentissue-womens-health-care-open-access.php"
@@ -206,6 +207,9 @@
 						</c:forEach>
 					</c:if>
 				</ul>
+			</div>
+			<div class="panel-footer">
+				<span class="error col-md-12">${error}</span>
 			</div>
 		</div>
 	</div>
@@ -793,7 +797,7 @@
 	}%>
 	<%
 		User us = (User) session.getAttribute("user");
-		if (us == null || (us.getUsername() == null) || (us.getUsername() == "")) {
+		if (us == null || (us.getID() == null) || (us.getID() == "")) {
 	%>
 	<script type="text/javascript">
 		var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];

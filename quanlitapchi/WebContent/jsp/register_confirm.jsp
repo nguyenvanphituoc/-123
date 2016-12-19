@@ -21,6 +21,42 @@
 <!-- Custom Fonts -->
 <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
+<style>
+.afterclicksubmit {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, 0.6);
+	animation: fadeIn 1s;
+}
+
+.loader {
+	color :  #fff;
+	border : 16px solid #fff; /* Light grey */
+	border-top: 16px solid #3498db; /* Blue */
+	border-left : 16px solid #123456;
+	border-right : 16px solid #654321;
+	border-radius: 50%;
+	margin: 10% 47%;
+	z-index: 10000;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 <link href="../css/main.css" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,6 +73,11 @@
 	<div class="background-allsite">
 		<img width="100%" height="100%" src="../assets/background.jpg" />
 	</div>
+	<div class="afterclicksubmit hidden">
+		<div class="loader ">Vui Lòng Chờ Đợi...</div>
+	</div>
+
+
 	<!-- header pageeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -57,23 +98,24 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
-					<li class="home "><a  href="index.jsp" title="Home"> <span
+					<li class="home "><a href="index.jsp" title="Home"> <span
 							class="icon"><i class="glyphicon glyphicon-home"
 								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li class="register selected"><a class="" href="register.jsp" title="Đăng Ký"> <span
-							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
-							<span>Đăng Ký</span>
+					<li class="register selected"><a class="" href="register.jsp"
+						title="Đăng Ký"> <span class="icon"><i
+								class="fa fa-share-alt" title="Join Us"></i></span> <span>Đăng
+								Ký</span>
 					</a></li>
 
-					<li class="contact"><a class="" href="contact.jsp" title="Liên Hệ"> <span
-							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
-								Hệ</span>
+					<li class="contact"><a class="" href="contact.jsp"
+						title="Liên Hệ"> <span class="icon"><i
+								class="fa fa-phone"></i></span> <span>Liên Hệ</span>
 					</a></li>
 
-					<li class="login"><a class="" href="signin.jsp" title="Đăng Nhập"> <span
-							class="icon "><i class="fa fa-user" title="Đăng Nhập"></i></span>
-							<span>Đăng Nhập</span>
+					<li class="login"><a class="" href="signin.jsp"
+						title="Đăng Nhập"> <span class="icon "><i
+								class="fa fa-user" title="Đăng Nhập"></i></span> <span>Đăng Nhập</span>
 					</a></li>
 				</ul>
 			</div>
@@ -87,6 +129,7 @@
 		<h1 class="page-header" align="center">TẠP CHÍ KHOA HỌC ĐẠI HỌC
 			SƯ PHẠM KỸ THUẬT</h1>
 	</div>
+
 	<!-- HEADER PAGE Ends-->
 	<!-- index.jsp Navigation start-->
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -126,6 +169,7 @@
 	<!-- Navigation Ends -->
 	<!-- header pageeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
 	<!-- Page Content -->
+
 	<div class="container">
 		<div class="panel panel-default input_">
 			<div class="panel-body">
@@ -138,8 +182,10 @@
 				</div>
 				<div class="col-md-8">
 					<form class="form-horizontal" action="../register" method="post"
-						role="form" accept-charset="UTF-8">
-							<% request.setCharacterEncoding("UTF-8"); %>
+						role="form" accept-charset="UTF-8" name="myform">
+						<%
+							request.setCharacterEncoding("UTF-8");
+						%>
 						<div class="hidden">
 							<input type="text" name="first_name"
 								value='<%=request.getParameter("first_name")%>'> <input
@@ -193,11 +239,12 @@
 								<span>*</span>
 							</label>
 							<div class="col-md-8">
-								<label ><% int len = request.getParameter("user_password").length();
-								           String passwd = "";
-										for(int i = 0; i< len; i++)
-											passwd += "*"; %>
-											<%=passwd%></label>
+								<label> <%
+ 	int len = request.getParameter("user_password").length();
+ 	String passwd = "";
+ 	for (int i = 0; i < len; i++)
+ 		passwd += "*";
+ %> <%=passwd%></label>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -206,26 +253,27 @@
 								<span>*</span>
 							</label>
 							<div class="col-md-8">
-								<%int cl = Integer.parseInt(request.getParameter("class"));
+								<%
+									int cl = Integer.parseInt(request.getParameter("class"));
 									String role = "";
 									switch (cl) {
-									case 1:
-										role = "Editor";
-										break;
-									case 2:
-										role = "Author";
-										break;
-									case 3:
-										role = "Reviewer";
-										break;
-									case 4:
-										role = "Reader";
-										break;
-									default:
-										role = "Admin";
-										break;
-									}
-									;%>
+										case 1 :
+											role = "Editor";
+											break;
+										case 2 :
+											role = "Author";
+											break;
+										case 3 :
+											role = "Reviewer";
+											break;
+										case 4 :
+											role = "Reader";
+											break;
+										default :
+											role = "Admin";
+											break;
+									};
+								%>
 								<label><%=role%></label>
 							</div>
 							<div class="clearfix"></div>
@@ -246,8 +294,8 @@
 									value="<< Quay lại">
 							</div>
 							<div class="btn col-md-3">
-								<input class=" btn-default" type="submit" title="continue"
-									value="Tiếp tục >>">
+								<input class=" btn-default" type="button" title="continue"
+									value="Tiếp tục >>" onclick="submitform();">
 							</div>
 						</div>
 					</form>
@@ -534,7 +582,16 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
-
+	<script type="text/javascript">
+		function submitform() {
+			if (document.myform.onsubmit &&
+				!document.myform.onsubmit()) {
+				return;
+			}
+			$('.afterclicksubmit').removeClass('hidden');
+			document.myform.submit();
+		}
+	</script>
 </body>
 
 </html>

@@ -224,7 +224,7 @@
 	    <%@ page import="model.User" %>
 		<%
 		 	User us = (User)session.getAttribute("user");
-			if ((us.getUsername() == null) || (us.getUsername() == "")) {
+			if (us == null || (us.getID() == null) || (us.getID() == "")) {
 		%>
 		<script type="text/javascript">
 			var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav')[0];

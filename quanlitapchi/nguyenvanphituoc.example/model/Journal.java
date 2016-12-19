@@ -11,12 +11,19 @@ public class Journal
 		private int subID;
 		private String subName;
 		private String joComent;
-		
+		private String keywd;
 		public Journal(){
-			
+			this.joID = -1;
+			this.joName = null;
+			this.joSubmit = null;
+			this.joStt = -1;
+			this.subID = -1;
+			this.subName = null;
+			this.joComent 	= null;
+			this.keywd 	= null;
 		}
 		public Journal( int joID, String joName, String joSubmit, 
-				int joStt, int subID, String subName, String joComent){
+				int joStt, int subID, String subName, String joComent, String keywd){
 			this.joID = joID;
 			this.joName = joName;
 			this.joSubmit = joSubmit;
@@ -24,6 +31,7 @@ public class Journal
 			this.subID = subID;
 			this.subName = subName;
 			this.joComent 	= joComent;
+			this.keywd 	= keywd;
 		}
 		
 		public int getID() {
@@ -67,5 +75,11 @@ public class Journal
 		}
 		public void setComent(String Coment) {
 			this.joComent = Coment;
+		}
+		public String getKeywd() {
+			return keywd;
+		}
+		public void setKeywd(String keywd) {
+			this.keywd = keywd;
 		}
 }

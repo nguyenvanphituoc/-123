@@ -18,7 +18,7 @@ import model.User;
 /**
  * Servlet implementation class LoginController
  */
-@WebServlet("/login")
+@WebServlet("/jsp/login")
 public class LoginControll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -69,17 +69,18 @@ public class LoginControll extends HttpServlet {
 		if(userValidate.equals("SUCCESS")) //If function returns success string then user will be rooted to Home page
 		{
 			//request.setAttribute("user", loginBean); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
-			//request.getRequestDispatcher("/Asp/success.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.	
+			request.getRequestDispatcher("/jsp/success.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.	
 
-			response.sendRedirect(request.getContextPath()+"/jsp/success.jsp");
+			//response.sendRedirect(request.getContextPath()+"/jsp/success.jsp");
 		}
 		else
 		{				
 			//If authenticateUser() function returns other than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
 			//request.getRequestDispatcher("/jsp/failed.jsp").forward(request, response);//forwarding the request
-			getServletContext().setAttribute("error", userValidate);
-			//request.getRequestDispatcher("/jsp/signin.jsp").forward(request, response);
-			response.sendRedirect(request.getContextPath()+"/jsp/signin.jsp");
+			//getServletContext().setAttribute("error", userValidate);
+			request.setAttribute("error", userValidate);
+			request.getRequestDispatcher("/jsp/signin.jsp").forward(request, response);
+			//response.sendRedirect(request.getContextPath()+"/jsp/signin.jsp");
 		}
 
 	}

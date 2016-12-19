@@ -1,5 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -58,23 +60,24 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
-					<li class="home "><a  href="index.jsp" title="Home"> <span
+					<li class="home "><a href="index.jsp" title="Home"> <span
 							class="icon"><i class="glyphicon glyphicon-home"
 								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
-					<li class="register selected"><a class="" href="register.jsp" title="Đăng Ký"> <span
-							class="icon"><i class="fa fa-share-alt" title="Join Us"></i></span>
-							<span>Đăng Ký</span>
+					<li class="register selected"><a class="" href="register.jsp"
+						title="Đăng Ký"> <span class="icon"><i
+								class="fa fa-share-alt" title="Join Us"></i></span> <span>Đăng
+								Ký</span>
 					</a></li>
 
-					<li class="contact"><a class="" href="contact.jsp" title="Liên Hệ"> <span
-							class="icon"><i class="fa fa-phone"></i></span> <span>Liên
-								Hệ</span>
+					<li class="contact"><a class="" href="contact.jsp"
+						title="Liên Hệ"> <span class="icon"><i
+								class="fa fa-phone"></i></span> <span>Liên Hệ</span>
 					</a></li>
 
-					<li class="login"><a class="" href="signin.jsp" title="Đăng Nhập"> <span
-							class="icon "><i class="fa fa-user" title="Đăng Nhập"></i></span>
-							<span>Đăng Nhập</span>
+					<li class="login"><a class="" href="signin.jsp"
+						title="Đăng Nhập"> <span class="icon "><i
+								class="fa fa-user" title="Đăng Nhập"></i></span> <span>Đăng Nhập</span>
 					</a></li>
 				</ul>
 			</div>
@@ -123,24 +126,34 @@
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
-		<script>
-			$(function() {
-				center()
-				$(window).resize(function() {
-					center()
-				})
-				function center() {
-					$('div').css({
-						left : ($(window).width() - $('div').width()) / 2,
-						top : ($(window).height() - $('div').height()) / 2
-					})
-				}
-			})
-		</script>
+
 	</nav>
 	<!-- Navigation Ends -->
 	<!-- header pageeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
 	<!-- Page Content -->
+	<button class="btnregistercomplete hidden" data-toggle="modal"
+		data-target="#myModal">Login</button>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Đã đăng ký</h4>
+				</div>
+				<div class="modal-body">
+					<p>Chúc mừng bạn đã đăng ký thành công. <br> Vui lòng kiểm tra email để biết thêm thông tin</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<div class="container">
 		<div class="panel panel-default input_">
 			<div class="panel-body">
@@ -152,19 +165,25 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<form class="form-horizontal" action="signin.jsp" method="GET" role="form">
-						<% request.setCharacterEncoding("UTF-8"); %>
-						<%@page import="model.User" %>
+					<form class="form-horizontal" action="signin.jsp" method="GET"
+						role="form">
 						<%
-								User us = (User) session.getAttribute("user"); 
-								String email = (us != null && us.getuEmail() != null && us.getuEmail() != "")?us.getuEmail():"#####";
+							request.setCharacterEncoding("UTF-8");
+						%>
+						<%@page import="model.User"%>
+						<%
+							User us = (User) session.getAttribute("user");
+							String email = (us != null && us.getuEmail() != null && us.getuEmail() != "") ? us.getuEmail() : "#####";
 						%>
 						<div class="row">
-							<p class="h6 mess">Check your e-mail <%=email%> for a message to verify
-								your registration. This message contains your password, which
-								you need to login. Note that Editorial Manager may have assigned
-								a different Username if the one you selected is already in use.
-								Thank you!</p>
+							<p class="h6 mess">
+								Check your e-mail
+								<%=email%>
+								for a message to verify your registration. This message contains
+								your password, which you need to login. Note that Editorial
+								Manager may have assigned a different Username if the one you
+								selected is already in use. Thank you!
+							</p>
 							<br>
 							<div class="clearfix"></div>
 						</div>
@@ -458,7 +477,26 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
-
+	<script>
+		$(function() {
+			center()
+			$(window).resize(function() {
+				center()
+			})
+			function center() {
+				$('div').css({
+					left : ($(window).width() - $('div').width()) / 2,
+					top : ($(window).height() - $('div').height()) / 2
+				})
+			}
+		})
+	</script>
+	<c:if
+		test="${applicationScope['user'].getID() != null && applicationScope['user'].getID() != ''}">
+		<script type="text/javascript">
+			$('.btnregistercomplete').click();
+		</script>
+	</c:if>
 </body>
 
 </html>

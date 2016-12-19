@@ -16,7 +16,7 @@ import model.Journal;
 
 
 
-@WebServlet("/searchJournal")
+@WebServlet("/jsp/searchJournal")
 public class SearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -38,28 +38,24 @@ public class SearchController extends HttpServlet {
 			DAO da = new DAO();
 			list = da.search(searchText, error);
 
-			if(error.toString().equals(""))
-			{	
-				request.getServletContext().setAttribute("checksearch", true);
-				request.getServletContext().setAttribute("listjournal", list);
-				response.sendRedirect(request.getContextPath()+"/jsp/search.jsp");
-			}
-			else {
-				//If authenticateUser() function returns other than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.				
-				getServletContext().setAttribute("errMessage", error);
-				response.sendRedirect(request.getContextPath()+"/jsp/404.jsp");
-				
-			}
+			request.setAttribute("checksearch", true);
+			request.setAttribute("listjournal", list);
+
 		} 
 		catch (Exception e) {
 			error.append(e.getMessage());
 			e.printStackTrace();
 		}
+		request.setAttribute("errMessage", error);
+		RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
+		rd.forward(request,response);
+//		request.getRequestDispatcher("search.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+
 
 		String searchText=request.getParameter("keyword");
 		StringBuilder error = new StringBuilder();
@@ -69,23 +65,17 @@ public class SearchController extends HttpServlet {
 			DAO da = new DAO();
 			list = da.search(searchText, error);
 
-			request.setAttribute("checksearch","TRUE");
+			request.setAttribute("checksearch", true);
 			request.setAttribute("listjournal", list);
 
-			if(error.equals(""))
-			{	
-
-			}
-			else {
-				//If authenticateUser() function returns other than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.				
-				getServletContext().setAttribute("errMessage", error);
-				response.sendRedirect(request.getContextPath()+"/jsp/404.jsp");
-			}
 		} 
 		catch (Exception e) {
 			error.append(e.getMessage());
 			e.printStackTrace();
 		}
+		request.setAttribute("errMessage", error);
+		RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
+		rd.forward(request,response);
 	}
 
 }
