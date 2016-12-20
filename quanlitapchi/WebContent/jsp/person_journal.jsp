@@ -1,12 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Page Content -->
 <div class="inner-center">
 	<ul class="nav nav-tabs" id="tab">
 		<li role="presentation" class="active"><a
 			href="person_journal1.jsp">Recent</a></li>
-		<li role="presentation"><a href="editor_room.jsp">Room</a></li>
+		<c:set scope="session" value="${user.uClass}" var="myclass">
+			<c:if test="${myclass == 0}">
+				<li role="presentation"><a href="submitManuscript.jsp">Hello
+						my Boss</a></li>
+			</c:if>
+			<c:if test="${myclass == 1}">
+				<li role="presentation"><a href="editor_room.jsp">Room</a></li>
+			</c:if>
+			<c:if test="${myclass == 2}">
+				<li role="presentation"><a href="submitManuscript.jsp">Manuscript</a></li>
+			</c:if>
+			<c:if test="${myclass == 3}">
+				<li role="presentation"><a href="submitManuscript.jsp">ReviewList</a></li>
+			</c:if>
+		</c:set>
 	</ul>
 	<div class="content">
 		<table class="table table-striped">

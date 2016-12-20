@@ -120,9 +120,9 @@
 						<ul class="sidebar-nav" id="nav-bar-collapse">
 							<li class="actived"><a href="person_homepage.jsp"
 								class="glyphicon glyphicon-user">Profile</a></li>
-							<li><a href="person_message.jsp"
-								class="glyphicon glyphicon-envelope">Message</a></li>
-							<li><a href="editor_journal.jsp"
+						<!-- 	<li><a href="person_message.jsp"
+								class="glyphicon glyphicon-envelope">Message</a></li>-->
+							<li><a href="person_journal.jsp"
 								class="glyphicon glyphicon-book">Journal</a></li>
 							<li><a href="person_other.jsp"
 								class="glyphicon glyphicon-asterisk">Other</a></li>
