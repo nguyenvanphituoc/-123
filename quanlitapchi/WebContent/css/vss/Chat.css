@@ -1,0 +1,1016 @@
+/******************************************************
+    Common Variable for Agile/Configuration
+*******************************************************/
+/* Chat View */
+/* Chat Message Viewer */
+/* Chat Room Explorer */
+/* Emoji Controls */
+.rooms-explorer .toolbar {
+  border-top: 1px solid transparent;
+  margin-right: 0px;
+  margin-left: 17px;
+  padding-left: 9px;
+}
+
+.rooms-explorer .rooms-tree-view {
+  overflow: auto;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.rooms-explorer .rooms-tree-view .tree-children div.node-content {
+  white-space: pre;
+}
+
+/* layout adjustments to suppress hub-pivot */
+.chatroom-container .hub-pivot {
+  display: none;
+}
+
+.chatroom-container .hub-pivot-content {
+  margin-top: 20px;
+}
+
+.chat-error-section {
+  width: 100%;
+  background-color: #ffffcc;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.chat-error-section ~ .right-hub-content {
+  top: 90px !important;
+}
+
+.chat-error-section .content {
+  margin-right: 20px;
+}
+
+.chat-error-section .error-dismiss {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/*
+* Chat View
+*/
+.chat-room-title {
+  float: left;
+  right: 20px;
+  max-width: 640px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.chatroom-view {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 10px;
+  left: 0;
+}
+
+.chatroom-view .splitter.horizontal {
+  display: block;
+  table-layout: auto;
+}
+
+.chatroom-view .splitter.horizontal.right-fix > .leftPane {
+  right: 25%;
+}
+
+.chatroom-view .splitter.horizontal.right-fix > .rightPane {
+  width: 25%;
+}
+
+.chatroom-view .splitter.horizontal.right-fix > .handleBar {
+  right: 25%;
+  background-color: transparent;
+}
+
+.chatroom-header .toolbar .combo {
+  border: 0px;
+  margin: 2px 0px 0px 2px;
+}
+
+.chatroom-header .chat-preferences {
+  float: right;
+}
+
+.chatroom-header .chat-preferences .menu-bar {
+  padding: 0;
+}
+
+.chatroom-header .chat-preferences .menu-bar .menu-item {
+  padding: 0;
+  height: 16px;
+  margin-right: 2px;
+}
+
+.chatroom-header .chat-preferences .menu-bar .menu-item .icon {
+  margin: 0;
+  vertical-align: top;
+}
+
+.chatroom-header .chat-preferences .menu-bar .menu-item.hover.icon-only,
+.chatroom-header .chat-preferences .menu-bar .menu-item.pressed.icon-only {
+  outline: none;
+  background: none;
+}
+
+.chatroom-header .chat-preferences .menu-bar .menu-item.focus.icon-only {
+  outline: 1px dotted;
+  background: none;
+}
+
+/* Positioning advertisement content for licensing */
+.rooms-with-ads .hub-content {
+  top: 0px;
+  padding-left: 12px;
+}
+
+/***** Begin Chat Controls Area *****/
+/*
+* Chat Transcript
+*/
+.chatroom-header .toolbar {
+  color: #007acc;
+  height: auto;
+  border: none;
+  float: left;
+  margin-top: 5px;
+}
+
+.chatroom-header .toolbar .menu-bar {
+  /* on hover we dont want outline to show, but no focus we want the arrows to be highlighted. 
+                On Tabbing in the toolbar, it adds both hover and focus classes to the item, in that case we want the outline
+                to be shown */
+}
+
+.chatroom-header .toolbar .menu-bar > .menu-item {
+  width: auto;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.chatroom-header .toolbar .menu-bar > .menu-item :first-child {
+  margin: 0 12px 4px 1px;
+}
+
+.chatroom-header .toolbar .menu-bar > .menu-item :nth-child(2) {
+  margin: 0 12px 4px 0;
+}
+
+.chatroom-header .toolbar .menu-bar > .menu-item :nth-child(3) {
+  margin: 0 12px 4px 0;
+}
+
+.chatroom-header .toolbar .menu-bar > .menu-item :nth-child(4) {
+  margin: 0 12px 5px 0;
+}
+
+.chatroom-header .toolbar .menu-bar > .menu-item.hover:not(.focus),
+.chatroom-header .toolbar .menu-bar > .menu-item:nth-child(2).hover,
+.chatroom-header .toolbar .menu-bar > .menu-item:nth-child(4).hover {
+  outline: none;
+  background: none;
+}
+
+.chatroom-header .toolbar .menu-bar > .menu-item.hover span {
+  text-decoration: underline;
+}
+
+.chatroom-header .toolbar .menu-bar > .menu-item.disabled {
+  color: #222;
+}
+
+.chatroom-header .toolbar .menu-bar .date-selector .text {
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+.chatroom-header .toolbar .icon-tfs-right.disabled {
+  opacity: 0.25;
+}
+
+.chatroom-header .toolbar .combo.date-time .drop {
+  background-image: none !important;
+}
+
+.chatroom-header .toolbar .combo.date-time.drop {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  background: url("../../_content/icon-date-small.png") no-repeat 0px 50% !important;
+}
+
+.chatroom-header .toolbar .combo {
+  border: 0px;
+  margin: 2px 0px 0px 2px;
+}
+
+.chatroom-header .toolbar .menu-item.focus .icon-tfs-left {
+  outline-color: #1C97EA;
+  outline-style: dotted;
+  outline-width: 1px;
+}
+
+.chatroom-header .toolbar .menu-item.focus .icon-tfs-right {
+  outline-color: #1C97EA;
+  outline-style: dotted;
+  outline-width: 1px;
+}
+
+/*
+* Chat Control (Left hand side of Chat view)
+*/
+.chatroom-chat-control {
+  position: absolute;
+  top: 0;
+  bottom: 10px;
+  left: 20px;
+  overflow: hidden;
+  width: 100%;
+  min-height: 350px;
+  min-width: 350px;
+}
+
+.chatroom-chat-control .chat-box {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  bottom: 110px;
+  left: 0;
+  overflow: auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.chatroom-chat-control .message-input-container {
+  position: absolute;
+  right: 20px;
+  bottom: 90px;
+  left: 0;
+}
+
+.chatroom-chat-control .message-input-container div.message-input {
+  position: absolute;
+  right: 0;
+  left: 131px;
+  margin-right: 1px;
+}
+
+.chatroom-chat-control .message-input-container .watermark {
+  font-style: normal;
+  color: #777777;
+}
+
+.chatroom-chat-control .message-input-container div.message-input textarea {
+  height: 60px;
+  max-height: 60px;
+  min-height: 60px;
+  border: 1px solid#7A868E;
+  font-size: 12px;
+  overflow: auto;
+  resize: none;
+  margin: 0;
+  padding: 6px;
+  width: 100%;
+  outline: none;
+}
+
+.chatroom-chat-control .message-input-container div.message-input textarea:focus {
+  border: 2px solid#FF5D07;
+}
+
+.chatroom-chat-control .truncated-message {
+  text-align: right;
+}
+
+.chatroom-chat-control .truncated-message.warning {
+  color: #D56B01;
+}
+
+.chat-box .identity-picture {
+  vertical-align: middle;
+  width: 26px;
+  height: 26px;
+}
+
+.chat-box .message {
+  margin: 0;
+  display: list-item;
+  overflow: hidden;
+}
+
+.chat-box .message .message-sender {
+  margin-top: 2px;
+  width: 126px;
+  float: left;
+}
+
+.chat-box .message .message-sender > div {
+  width: 85px;
+  text-align: right;
+  display: inline-block;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.chat-box .message .message-content {
+  position: relative;
+  padding: 0px 6px 0px 5px;
+  margin-right: 6px;
+  border-bottom: 1px solid#E1E1E1;
+}
+
+.chat-box .message :last-of-type .message-content {
+  border-bottom: none;
+}
+
+.chat-box .message .message-text.error {
+  color: red;
+  margin-left: 142px;
+}
+
+.chat-box .message .message-content {
+  margin-left: 131px;
+  padding-left: 11px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+}
+
+.chat-box .message .message-rawText {
+  display: none;
+}
+
+.chat-box .message .message-text {
+  padding-right: 70px;
+  /*NOTE: IE does not respect this on resize*/
+  white-space: pre-wrap;
+  font-size: 12px;
+  line-height: 19px;
+  color: #1E1E1E;
+  word-wrap: break-word;
+}
+
+.chat-box .message .title,
+.chat-box .message .git-commit,
+.chat-box .message .build .build-info {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.chat-box .message .git-commit {
+  padding-right: 130px;
+}
+
+.chat-box .message .title .icon {
+  margin-right: 10px;
+}
+
+.chat-box .message .title .title-link {
+  margin-right: 3px;
+}
+
+.chat-box .message .build-summary {
+  margin-right: 3px;
+}
+
+.chat-box .message .build-details {
+  display: block;
+}
+
+.chat-box .message .message-rightside {
+  padding-right: 6px;
+}
+
+.chat-box .message .message-time {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  width: 50px;
+  display: inline;
+  text-align: right;
+  font-size: 10px;
+  color: #606060;
+  margin-right: 6px;
+}
+
+.chat-box .message.normal.my .message-content {
+  background-color: #EBF2F9;
+}
+
+.chat-box .message.notification .tagged-message {
+  margin-left: 131px;
+  margin-right: 6px;
+  border-bottom: 1px solid#E1E1E1;
+}
+
+.chat-box .message.notification .message-content {
+  margin: 2px 0px 2px 0px;
+  padding: 3px 6px 7px 5px;
+  border-bottom: none;
+  /*override the message-content border, it's shown as part of the tagged-message*/
+}
+
+.chat-box .message.notification .tag-workItems {
+  border-left: 5px solid#009CCC;
+}
+
+.chat-box .message.notification .tag-gitpush,
+.chat-box .message.notification .tag-checkin {
+  border-left: 5px solid#68217A;
+}
+
+.chat-box .message.notification .tag-build-succeeded,
+.chat-box .message.notification .tag-build {
+  border-left: 5px solid#748189;
+}
+
+.chat-box .message.notification .tag-codeReview {
+  border-left: 5px solid#68217A;
+}
+
+.chat-box .message.notification .tag-critical {
+  border-left: 5px solid#fdedeb;
+}
+
+.chat-box .message.notification .icon.status {
+  margin-right: 3px;
+  margin-left: 3px;
+  vertical-align: top;
+}
+
+.chat-box .message.system .message-text {
+  color: #777777;
+}
+
+.chat-box .message.error .message-text {
+  color: red;
+}
+
+.chat-box .message.system.new-day-message .message-text {
+  text-align: center;
+}
+
+.chat-box .message-rightside .mentionicon {
+  position: absolute;
+  top: 6px;
+  right: 50px;
+  background: url("../../_content/tfs-icons.png") no-repeat -816px -16px !important;
+}
+
+.chat-box .message.GitPushEvent .message-time,
+.chat-box .message.CheckinEvent .message-time,
+.chat-box .message.CodeReviewChangedEvent .message-time {
+  width: 245px;
+}
+
+.chat-box .message.normal .user-mention {
+  padding: 1px 3px 1px 3px;
+  background-color: #FFEEE6;
+  border: 1px solid#FF5D07;
+  font-weight: bold;
+  color: #FF5D07;
+}
+
+.chat-box .message-sender .icon {
+  width: 26px;
+  height: 26px;
+}
+
+.chat-box .message-sender .build {
+  background: url("../../_content/service-icons.png") no-repeat -26px -26px !important;
+}
+
+.chat-box .message-sender .build {
+  background-color: #748189 !important;
+}
+
+.chat-box .message-sender .gitpush {
+  background: url("../../_content/service-icons.png") no-repeat -130px -26px !important;
+}
+
+.chat-box .message-sender .gitpush {
+  background-color: #68217A !important;
+}
+
+.chat-box .message-sender .checkin {
+  background: url("../../_content/service-icons.png") no-repeat -130px -26px !important;
+}
+
+.chat-box .message-sender .checkin {
+  background-color: #68217A !important;
+}
+
+.chat-box .message-sender .codereview {
+  background: url("../../_content/service-icons.png") no-repeat -182px -26px !important;
+}
+
+.chat-box .message-sender .codereview {
+  background-color: #68217A !important;
+}
+
+.chat-box .message-sender .workitems {
+  background: url("../../_content/service-icons.png") no-repeat -234px -26px !important;
+}
+
+.chat-box .message-sender .workitems {
+  background-color: #009CCC !important;
+}
+
+.chat-box .message-time .message-chart {
+  margin-top: 6px;
+  margin-right: 3px;
+  bottom: 3px;
+  height: 18px !important;
+}
+
+.chat-box .message-time .message-chart.histogram {
+  float: right;
+  margin-right: -1px;
+}
+
+.chat-box .message-time .message-chart .summary-change-counts {
+  margin-right: -11px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.autocomplete-menu-container {
+  position: absolute;
+  right: 0;
+  left: 131px;
+}
+
+.autocomplete-menu {
+  background-color: #ffffff;
+  border-color: #cccccc;
+  font-size: 12px;
+  color: #222;
+  max-height: 304px;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000 !important;
+  position: absolute;
+  right: 0;
+}
+
+.autocomplete-menu .user-mention-item a {
+  background: none;
+  padding: 3px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.autocomplete-menu li.user-mention-item.ui-state-focus,
+.autocomplete-menu li.user-mention-item.ui-state-hover,
+.autocomplete-menu .user-mention-item.no-matches {
+  margin: 0;
+  border-color: #C5D6F1;
+  background-color: #dce6f4;
+}
+
+.autocomplete-menu .user-mention-item img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
+.message-input-container .message-input .inner-message-input {
+  height: 60px;
+  position: relative;
+}
+
+.message-input-container .message-input .emoji-picker.movein {
+  position: absolute;
+}
+
+.message-input-container .message-input .emoji-picker {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.message-input-container .message-input .emoji-picker .icon {
+  width: 19px;
+  height: 19px;
+}
+
+.message-input-container .message-input .emoji-picker .emoji-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 3px;
+  display: inline-block;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.message-input-container .message-input .emoji-picker .emoji-button :hover,
+.message-input-container .message-input .emoji-picker .emoji-button :focus {
+  background-color: #dce6f4;
+}
+
+.message-input-container .message-input .emoji-picker .emoji-button.selector-open {
+  background-color: #DCEBFC;
+}
+
+.message-input-container .message-input .emoji-picker .icon-selector {
+  background-color: #ffffff;
+  position: absolute;
+  right: 0;
+  bottom: 27px;
+  border: 1px solid#cccccc;
+  padding: 5px;
+  outline: none;
+}
+
+.message-input-container .message-input .icon-selector > div {
+  padding: 3px;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+
+.message-input-container .message-input .icon-selector > div.affect {
+  background-color: #dce6f4;
+}
+
+/*
+* Chat Members Panel (Right hand side)
+*/
+.chatroom-members-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 12px;
+  left: 7px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.chatroom-members-list .members-panel {
+  margin-bottom: 12px;
+}
+
+.chatroom-members-list .members-panel .tfs-collapsible-header {
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #222;
+}
+
+.chatroom-members-list .members-panel ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chatroom-members-list li {
+  padding-bottom: 12px;
+  width: 234px;
+}
+
+.chatroom-members-list li > .member-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.chatroom-members-list li .member-name {
+  color: #1E1E1E;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  width: 200px;
+}
+
+.chatroom-members-list li .member-status {
+  color: #777777;
+}
+
+.chatroom-members-list .identity-picture {
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+}
+
+/*
+* Chat Administration (Manage Events/Users)
+*/
+/*We are overloading the toolbar because this is not really a toolbar.  It was initially designed as a toolbar and later reskinned rather than
+    being rewritten.  We have a workitem on the backlog to rewrite this.*/
+.chatroom-view .toolbar {
+  height: auto;
+  border: none;
+  color: #007acc;
+}
+
+.chatroom-view .toolbar .menu-bar .menu-item {
+  display: block;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.chatroom-view .toolbar .menu-bar .menu-item.hover {
+  outline: none;
+  background: none;
+}
+
+.chatroom-view .toolbar .menu-bar > .menu-item.hover span {
+  text-decoration: underline;
+}
+
+.update-room-dialog .input-text, .update-room-dialog .combo {
+  margin: 5px 0px;
+  width: 100%;
+}
+
+.update-room-dialog .input-text::-ms-clear {
+  display: none;
+}
+
+/*
+* Chat Alerts Dialog
+*/
+.ui-dialog .titlebar-no-margin {
+  margin-bottom: 0px;
+}
+
+.ui-dialog .chat-alert-view {
+  margin-left: 0px;
+}
+
+.chat-alert-view {
+  /* Chat Alert Dialog Tabs */
+  /* Alerts Pages */
+}
+
+.chat-alert-view .header {
+  background-color: #F1F1F1;
+  padding: 10px 20px 10px 20px;
+  width: 100%;
+}
+
+.chat-alert-view .message-area-control {
+  width: auto;
+  margin: 3px;
+}
+
+.chat-alert-view .ui-tabs .ui-tabs-nav {
+  background-color: #F1F1F1;
+  padding-left: 20px;
+  text-transform: none;
+  font-size: 12px;
+  /* copied from .pivot-view li */
+  /* copied from .pivot-view a */
+  /* copied from .pivot-view a:hover */
+  /* copied from .pivot-view li.selected a */
+}
+
+.chat-alert-view .ui-tabs .ui-tabs-nav li {
+  list-style: none;
+  float: left;
+  position: relative;
+  padding: 0;
+  margin-right: 20px;
+  white-space: nowrap;
+  min-width: 10px;
+}
+
+.chat-alert-view .ui-tabs .ui-tabs-nav li a {
+  float: left;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 34px;
+  line-height: 14px;
+  color: #666666;
+}
+
+.chat-alert-view .ui-tabs .ui-tabs-nav li a:hover {
+  color: #007acc;
+}
+
+.chat-alert-view .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+  color: #007acc;
+  border-bottom: 4px solid #007acc;
+}
+
+.chat-alert-view .description-container {
+  margin-top: 20px;
+  margin-left: 20px;
+  vertical-align: top;
+}
+
+.chat-alert-view .description-icon {
+  width: 26px;
+  height: 26px;
+  overflow: hidden;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.chat-alert-view .description-icon.build {
+  background: url("../../_content/service-icons.png") no-repeat -26px -26px !important;
+}
+
+.chat-alert-view .description-icon.build {
+  background-color: #748189 !important;
+}
+
+.chat-alert-view .description-icon.code {
+  background: url("../../_content/service-icons.png") no-repeat -130px -26px !important;
+}
+
+.chat-alert-view .description-icon.code {
+  background-color: #68217A !important;
+}
+
+.chat-alert-view .description-icon.codereview {
+  background: url("../../_content/service-icons.png") no-repeat -182px -26px !important;
+}
+
+.chat-alert-view .description-icon.codereview {
+  background-color: #68217A !important;
+}
+
+.chat-alert-view .description-icon.work {
+  background: url("../../_content/service-icons.png") no-repeat -234px -26px !important;
+}
+
+.chat-alert-view .description-icon.work {
+  background-color: #009CCC !important;
+}
+
+.chat-alert-view .description-icon.pullrequest {
+  background: url("../../_content/service-icons.png") no-repeat -182px -26px !important;
+}
+
+.chat-alert-view .description-icon.pullrequest {
+  background-color: #68217A !important;
+}
+
+.chat-alert-view .description-text {
+  padding-left: 5px;
+}
+
+.chat-alert-view .chat-alert-section {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.chat-alert-view .chat-alert {
+  white-space: nowrap;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.chat-alert-view .chat-alert input {
+  margin-right: 5px;
+  margin-top: 0px;
+  vertical-align: middle;
+}
+
+.chat-alert-view .chat-alert input[type="checkbox"] {
+  margin-top: 3px;
+}
+
+.chat-alert-view .chat-alert label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0px;
+  color: #222;
+}
+
+.chat-alert-view .chat-alert .firstCombo .combo {
+  width: 240px;
+}
+
+.chat-alert-view .chat-alert .combo {
+  width: 130px;
+  display: inline-block;
+  margin-top: 0px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.chat-alert-view .chat-alert .combo label {
+  margin-top: 0px;
+  vertical-align: middle;
+}
+
+.chat-alert-view .chat-alert-warning-container {
+  margin-left: 20px;
+}
+
+.chat-alert-view .chat-alert-warning-container td {
+  vertical-align: top;
+}
+
+.chat-alert-view .chat-alert-warning {
+  /*padding-left: 3px;*/
+}
+
+.chat-alert-view .chat-alert-section .dynamicEventSection {
+  margin: 5px;
+}
+
+.chat-alert-view .chat-alert-section .dynamicEventSection .firstCombo {
+  display: inline-block;
+}
+
+.chat-alert-view .chat-alert-section .dynamicEventSection .firstCombo .combo {
+  display: inline-block;
+  width: 240px;
+  margin-top: 0px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.chat-alert-view .chat-alert-section .dynamicEventSection .firstCombo .combo label {
+  margin-top: 0px;
+  vertical-align: middle;
+}
+
+.chat-alert-view .chat-alert-section .dynamicEventSection .chat-alert {
+  padding-left: 0px;
+}
+
+.chat-alert-view .chat-alert-section .icon-delete {
+  margin-top: 0px;
+  vertical-align: middle;
+}
+
+.chat-alert-view .add-new-alert .add-new-alert-text {
+  padding-left: 2px;
+  vertical-align: bottom;
+}
+
+.chat-alert-view .delete-alert-button {
+  margin: 10px;
+}
+
+.chat-alert-view .ui-tabs {
+  height: 280px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.chat-alert-view .delete-alert-button.disabled {
+  opacity: 0.5;
+}
+
+.chatroom-chat-control .emoji {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+/***** End Chat Controls Area *****/
+/*
+* Chat Members Dialog
+*/
+.room-members-dialog-container {
+  height: 100%;
+  width: 100%;
+}
+
+.room-members-dialog-container .toolbar {
+  margin-left: 0px;
+}

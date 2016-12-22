@@ -1,0 +1,168 @@
+/* Trangnhat.net CSS */
+
+
+
+/*-------------------------BASIC----------------------*/
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+	text-align: left;
+}
+
+h1 {
+	font-size: 1.3em;
+	padding-bottom:4px;
+	border-bottom: solid 1px #DEE5D0;
+	border-right: solid 1px #C6CFB5;
+	font-weight: bold;
+	width:620px;
+	text-align:right;
+	color: #26734D;
+	margin-bottom: 8px;
+	margin-top: 30px;
+	text-transform: uppercase;
+	background-color : #EFFFEF;
+}
+
+h2 {
+	font-size: 1.1em;
+	width:100%;
+	padding-bottom:4px;
+	border-bottom: solid 1px #6699CC;
+	font-weight: bold;
+	text-align:left;
+	color: #006600;
+	margin-bottom: 8px;
+}
+
+
+h3 {
+	font-size: 1.7em;
+	width:75%;
+	padding-bottom:4px;
+	font-weight: bold;
+	text-align:left;
+	color: #26734D;
+	margin-bottom: 8px;
+}
+
+
+
+h4 {
+	font-size: 1.7em;
+	width:100%;
+	padding-bottom:4px;
+	border-bottom: solid 1px #636363;
+	font-weight: bold;
+	text-align:left;
+	color: #26734D;
+	margin-bottom: 8px;
+}
+
+
+p {
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+
+/*----- Link ----*/
+
+a:link, a:active {
+	color:#26734D;
+	text-decoration: none;
+}
+a:visited  {
+	color: #53C68C;
+	text-decoration: none;
+}
+ 
+a:hover {
+	color: #66334D;
+	text-decoration: none;
+}
+
+
+/*------------------------CONTENT------------------------*/
+
+#containerhead {			
+	margin: auto;
+	width: 100%;
+	height: 136px;
+	background-image: url('../images/bgheader.jpg');
+
+	
+}
+
+
+
+#header {			
+	height: 82px;
+	width: 960px;
+	margin: auto;
+	clear: both;
+	border:0 none;
+	background-image:url('../images/headera.gif');
+	background-color:##B5D5E2;
+}
+
+#menu {			
+	height: 65px;
+	width: 910px;
+	margin: auto;
+	clear: both;
+	border:0 none;
+	background-image:url('../images/bgmenu.jpg');
+	padding-left:25px; padding-right:25px; padding-top:0; padding-bottom:0
+}
+
+
+#content {			
+	width: 100%;	
+	background-color:#ffffff;
+	
+}
+	
+#contenta {	
+width: 890px;
+margin:auto;
+background-image:url('../images/bgcontentr.jpg');
+font-size:1.1em; padding-left:35px; padding-right:35px; padding-top:0px; padding-bottom:0	
+}
+
+#contentb {	
+
+float: left; width: 680px; padding: 0 0 0 5px; }
+p.date { font-size: 10px; text-transform: uppercase; }
+
+
+#edit {			
+	width: 100%;
+	overflow: auto; 
+}
+
+
+#footercontainer {				
+	clear: both;
+	height: 47px;
+	width: 100%;
+	border:0;
+	background-color:#CAE6BE;
+}
+#footer {				
+	margin:auto;
+	height: 40px;
+	width: 860px;
+	border:0 none;
+	background-image:url('../images/footerfr.gif');
+	background-position: center;
+	background-repeat:no-repeat;
+	font-size:1.1em;
+	color:#003300;
+	text-align:right;
+	line-height: 160%; padding-left:0; padding-right:100px; padding-top:7px; padding-bottom:0
+}
