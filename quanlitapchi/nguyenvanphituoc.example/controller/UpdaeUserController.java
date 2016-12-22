@@ -53,7 +53,7 @@ public class UpdaeUserController extends HttpServlet {
 			{
 				//request.setAttribute("user", loginBean); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
 				request.getServletContext().setAttribute("action_actor", "Cập nhật thành công user : " + loginBean.getUsername()
-																		+"\r\n Email : " + loginBean.getuEmail());
+																		+"\r\n ID : " + loginBean.getuEmail());
 				response.sendRedirect(request.getContextPath() + "/jsp/admin.jsp");
 				//response.sendRedirect(request.getContextPath()+"/jsp/success.jsp");
 			}

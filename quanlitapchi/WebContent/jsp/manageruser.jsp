@@ -100,7 +100,7 @@ td, th {
 								href="deleteuser.html?id=<c:out value="${us.getID()}"/>&tb=user&email=<c:out value="${us.getuEmail() }"/>">Xóa</a></td>
 							<td class="" width="7%"><a
 								class="btn btn-primary updateuser" data-toggle="modal"
-								data-target="#myModal" href="#">Cập Nhật</a></td>
+								data-target="#myModalmanageruser" href="#">Cập Nhật</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -109,7 +109,7 @@ td, th {
 	</div>
 </div>
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModalmanageruser" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 
 		<!-- Modal content-->

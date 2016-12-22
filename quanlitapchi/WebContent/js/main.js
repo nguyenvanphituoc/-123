@@ -29,10 +29,7 @@ function isLogin(){
 /***********************************************User tabs Click*************************************************************/
 
 var $anchor = $('#nav-bar-collapse').find('a');
-
-
 //reload lại page với achor đang active
-
 //gán event cho các anchor khi click vào sử dụng ajax
 $anchor.each(function(index, anchor){
 	var anchor = $anchor[index];
@@ -46,34 +43,6 @@ $anchor.each(function(index, anchor){
 		this.parentElement.setAttribute("class", "actived");// đây là một element
 		console.log('sideload ' + href );
 		//clear child
-		/*var $tabAnchor = document.getElementById("tab");
-		while ($tabAnchor.hasChildNodes()) {
-			$tabAnchor.removeChild($tabAnchor.lastChild);
-		}
-		//append child
-		switch(href){
-		case "person_journal.jsp":
-			var newli = document.createElement("li");
-			newli.innerHTML = '<a href="person_homepage.jsp">PROFILE</a>';
-			newli.attributes["role"] = 'presentation';
-			newli.attributes["class"] = 'active';
-			$tabAnchor.appendChild(newli);
-			break;
-		case "person_other.jsp":
-			var newli = document.createElement("li");
-			newli.innerHTML = '<a href="person_homepage.jsp">PROFILE</a>';
-			newli.attributes["role"] = 'presentation';
-			newli.attributes["class"] = 'active';
-			$tabAnchor.appendChild(newli);
-			break;
-		default : //default profile
-			var newli = document.createElement("li");
-		newli.innerHTML = '<a href="person_homepage.jsp">PROFILE</a>';
-		newli.attributes["role"] = 'presentation';
-		newli.attributes["class"] = 'active';
-		$tabAnchor.appendChild(newli);
-		break;
-		}*/
 		//$user.load(href);
 		// 4 bước XMLHttp
 		//$content.load(href);

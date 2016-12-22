@@ -86,8 +86,9 @@ public class SubmitManuscriptController extends HttpServlet {
 
 		// constructs the directory path to store upload file
 		// this path is relative to application's directory
-
+		String action_actor = "";
 		try {
+			
 			// parses the request's content to extract file data
 			// preparing data
 			@SuppressWarnings("unchecked")
@@ -120,7 +121,7 @@ public class SubmitManuscriptController extends HttpServlet {
 						}					
 					}
 					else{
-						
+
 						contentype = item.getName().substring(item.getName().indexOf("."));
 					}
 				}
@@ -129,16 +130,20 @@ public class SubmitManuscriptController extends HttpServlet {
 				LocalDate now = LocalDate.now();
 				jo.setSubmitDate(dtf.format(now).toString());//6
 				jo.setKeywd(keywd.toString());//1
-				
-				String filename = fileName(Integer.toString(jo.getSubID()), jo.getSubmitDate(), jo.getName(), contentype);
-				//up file before up to database
-				Fileupload.Upload(request, fileitems, filename, error);
-				// up to database
-				if(error.toString().equals("") || error == null){
-					DAO da = new DAO();
-					da.manuscriptJournal(jo, author, autDes, error);
+				if(contentype.contains("pdf")){
+					String filename = fileName(Integer.toString(jo.getSubID()), jo.getSubmitDate(), jo.getName(), contentype);
+					//up file before up to database
+					Fileupload.Upload(request, fileitems, filename, error);
+					// up to database
+					if(error.toString().equals("") || error == null){
+						DAO da = new DAO();
+						da.manuscriptJournal(jo, author, autDes, error);
+						action_actor = "Thêm Thành Công Tạp Chí";
+					}
 				}
-				
+				else
+					action_actor = "Vui lòng chọn file pdf";
+
 			}
 		}
 		catch (Exception ex) 
@@ -148,7 +153,7 @@ public class SubmitManuscriptController extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/jsp/404.jsp");
 		}
 		//request.getRequestDispatcher(request.getHeader("referer").substring(request.getHeader("referer").lastIndexOf("/")+1)).forward(request, response);
-		request.getServletContext().setAttribute("action_actor", "Thêm Thành Công Tạp Chí");
+		request.getServletContext().setAttribute("action_actor", action_actor);
 		response.sendRedirect(request.getContextPath() + "/jsp/author.jsp");
 	}
 	private String fileName(String subid,String submitDate, String Name, String type){

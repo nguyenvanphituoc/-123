@@ -35,8 +35,7 @@ public class EmailUtility {
             public PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(userName, password);
             }
-        };
- 
+        }; 
         Session session = Session.getInstance(properties, auth);
  
         // creates a new e-mail message

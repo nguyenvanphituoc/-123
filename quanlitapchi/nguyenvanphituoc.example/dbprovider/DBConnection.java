@@ -44,9 +44,11 @@ public class DBConnection {
 
 		}
 		catch(SQLException sqlex){
+			if(error != null)
 			error.append("\r\n"+sqlex.getMessage());
 		}
 		catch(Exception ex){
+			if(error != null)
 			error.append("\r\n"+ex.getMessage());
 		}
 		return resultSet;
@@ -62,9 +64,11 @@ public class DBConnection {
 
 		}
 		catch(SQLException sqlex){
+			if(error != null)
 			error.append("\r\n"+sqlex.getMessage());
 		}
 		catch(Exception ex){
+			if(error != null)
 			error.append("\r\n"+ex.getMessage());
 		}
 		return resultSet;

@@ -53,8 +53,6 @@ public class DAO {
 		String userName = loginBean.getUsername(); //Keeping user entered values in temporary variables.
 		String password = loginBean.getPassword();
 		int 	role = loginBean.getuClass();
-		Connection con = null;
-		Statement statement = null;
 		ResultSet resultSet = null;
 
 		String userNameDB = "";
@@ -64,9 +62,8 @@ public class DAO {
 		String error = "";
 		try
 		{
-			con = DBConnection.createConnection(); //establishing connection
-			statement = con.createStatement(); //Statement is used to write queries. Read more about it.
-			resultSet = statement.executeQuery("select * from userlogin where uLoginName ='" + userName +"'"); //Here table name is users and userName,password are columns. fetching all the records and storing in a resultSet.
+			String sql = "select * from userlogin where uLoginName ='" + userName +"'";
+			resultSet = DBConnection.fnExecuteQuery(sql, null); //Here table name is users and userName,password are columns. fetching all the records and storing in a resultSet.
 
 			//			while(resultSet.next()) // Until next row is present otherwise it return false
 			//			{
@@ -78,8 +75,8 @@ public class DAO {
 				IDUserDB  = resultSet.getString("idUserLogin");	
 
 				resultSet.close();				
-
-				resultSet = statement.executeQuery("select * from user where idUser =" + "'" + IDUserDB +"'"); //Here table name is users and userName,password are columns. fetching all the records and storing in a resultSet.
+				sql = "select * from user where idUser =" + "'" + IDUserDB +"'";
+				resultSet = DBConnection.fnExecuteQuery(sql, null); //Here table name is users and userName,password are columns. fetching all the records and storing in a resultSet.
 				resultSet.next();
 
 				roleDB = resultSet.getInt("uClass");
