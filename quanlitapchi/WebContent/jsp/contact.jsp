@@ -58,11 +58,11 @@
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
+				<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="mynav nav navbar-nav navbar-right" noLogin="1">
-					<li class="home "><a href="index.jsp" title="Home"> <span
-							class="icon"><i class="glyphicon glyphicon-home"
+					<li class="home"><a href="index.jsp" title="Home">
+							<span class="icon"><i class="glyphicon glyphicon-home"
 								title="Trang Chủ"></i></span> <span>Trang Chủ</span>
 					</a></li>
 					<li class="register"><a class="" href="register.jsp"
@@ -71,7 +71,7 @@
 								Ký</span>
 					</a></li>
 
-					<li class="contact selected"><a class="" href="contact.jsp"
+					<li class="contact  selected"><a class="" href="contact.jsp"
 						title="Liên Hệ"> <span class="icon"><i
 								class="fa fa-phone"></i></span> <span>Liên Hệ</span>
 					</a></li>
@@ -85,9 +85,9 @@
 							class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<ins>Profile</ins>
-							<li><a href="#">Home</a></li>
+							<li class=""><a href="" value="Home Page">Home</a></li>
 							<ins>Other</ins>
-							<li class=""><a href="logout">Sign out</a></li>
+							<li class=""><a href="logout"  value="Sign Out">Sign out</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -569,7 +569,7 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
 
-	<!-- isLogin , khi đang ở file w3data.js gọi đến file jsp-->
+		<!-- isLogin , khi đang ở file w3data.js gọi đến file jsp-->
 	<%@ page import="model.User"%>
 	<%!public String getURL(int i) {
 		String url;
@@ -621,7 +621,7 @@
 			var allA = ul.querySelectorAll("a");
 			allA.forEach(function(item, index) {
 				if(item.innerText === "Home"){
-					item.setAttribute("href", <%=getURL(us.getuClass())%>);
+					item.setAttribute("href", "<%=getURL(us.getuClass())%>");
 				}
 			})
 			</script>

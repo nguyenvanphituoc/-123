@@ -1079,55 +1079,6 @@ div-right
 	background-color: rgba(1, 239, 235, 0.89);
 	color: white;
 }
-/******************************   /*******************************
-texteditor						+	task_room
-*******************************/ /*****************************/
-#text_editor, #task_room, #member_room {
-	top: 0;
-	position: fixed;
-	z-index: 10000 !important;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top : 0;
-	display: none;
-	background-color: rgba(0, 0, 0, 0.3);
-}
-@media()
-/*Text editor*/
-@media ( min-width : 1200px) {
-	.overplay_texteditor {
-		width: 100%;
-	}
-}
-/*Task room*/
-#manager_task {
-	margin: 5% auto;
-	position: inherit;
-	z-index: 100;
-	left: 0;
-	right: 0;
-}
-
-#manager_task>ul {
-	height: 180px;
-	width: 450px;
-	overflow-Y: scroll;
-}
-
-#manager_task li {
-	display: inline-block;
-}
-
-#manager_task p>button {
-	margin: 0 auto;
-}
-
-#manager_task li>input[type=checkbox] {
-	background-color: black;
-	width: auto;
-	height: auto;
-}
 /*______________________________________________________________________________________________________________*/
 /*------------------------------------------------------------------
     [Padding]

@@ -290,7 +290,9 @@
 					break;
 				}
 			}
+			
 			$content.load(a.attributes['href'].value);
+			
 			var $tabAnchor = $('#tab').find('a');
 			$tabAnchor.each(function(index, anchor){
 				var tabAnchor = $tabAnchor[index];

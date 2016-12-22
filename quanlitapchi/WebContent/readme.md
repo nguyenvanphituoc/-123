@@ -5,4 +5,6 @@ register complete : học cách dùng popup-- done
 
 chỉnh sửa lại đường link tương đối-- done
 
-làm chức năng cho tác giả hoàn thiện -- not done yet
+làm chức năng cho tác giả hoàn thiện -- done
+
+thêm journal path trong server --

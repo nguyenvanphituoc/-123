@@ -1,4 +1,4 @@
-// sử lý đăng nhập thành công thì xóa đi đăng nhập và đăng ký
+//sử lý đăng nhập thành công thì xóa đi đăng nhập và đăng ký
 
 var $headernav = $('#bs-example-navbar-collapse-1 ul.mynav');   
 function isLogin(){
@@ -19,39 +19,71 @@ function isLogin(){
 			item.classList.remove("hidden");
 			if(item.classList.contains('register') || item.classList.contains('login')){
 				item.classList.add("hidden");
-				
+
 			}
 		});
 	}
 }
-// thây đổi giá trị noLogin khi Login thành công
+//thây đổi giá trị noLogin khi Login thành công
 
 /***********************************************User tabs Click*************************************************************/
-var $content = $("#center");
 
 var $anchor = $('#nav-bar-collapse').find('a');
-var $li = $anchor.parents('ul').find('li');
+
 
 //reload lại page với achor đang active
 
-// gán event cho các anchor khi click vào sử dụng ajax
+//gán event cho các anchor khi click vào sử dụng ajax
 $anchor.each(function(index, anchor){
 	var anchor = $anchor[index];
 	anchor.addEventListener('click', function(e){
 		e.preventDefault();
+		var $content = $("#center");
+		var $li = $anchor.parents('ul').find('li');
 		var href = anchor.attributes['href'].value;
 		//remove active anchor
 		$li.removeAttr("class", "actived");// đây là một object collection
 		this.parentElement.setAttribute("class", "actived");// đây là một element
 		console.log('sideload ' + href );
+		//clear child
+		/*var $tabAnchor = document.getElementById("tab");
+		while ($tabAnchor.hasChildNodes()) {
+			$tabAnchor.removeChild($tabAnchor.lastChild);
+		}
+		//append child
+		switch(href){
+		case "person_journal.jsp":
+			var newli = document.createElement("li");
+			newli.innerHTML = '<a href="person_homepage.jsp">PROFILE</a>';
+			newli.attributes["role"] = 'presentation';
+			newli.attributes["class"] = 'active';
+			$tabAnchor.appendChild(newli);
+			break;
+		case "person_other.jsp":
+			var newli = document.createElement("li");
+			newli.innerHTML = '<a href="person_homepage.jsp">PROFILE</a>';
+			newli.attributes["role"] = 'presentation';
+			newli.attributes["class"] = 'active';
+			$tabAnchor.appendChild(newli);
+			break;
+		default : //default profile
+			var newli = document.createElement("li");
+		newli.innerHTML = '<a href="person_homepage.jsp">PROFILE</a>';
+		newli.attributes["role"] = 'presentation';
+		newli.attributes["class"] = 'active';
+		$tabAnchor.appendChild(newli);
+		break;
+		}*/
 		//$user.load(href);
 		// 4 bước XMLHttp
+		//$content.load(href);
 		//new
 		var xhr = new XMLHttpRequest();
 		// callback
 		xhr.onreadystatechange = function(){
 			if(xhr.readyState === 4 && xhr.status === 200){
 				$content.html(xhr.responseText);	
+				console.log("loaded");
 			}
 		}		
 		// open

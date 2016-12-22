@@ -152,25 +152,25 @@
 				</div>
 				<div class="col-md-6">
 					<form name="login" id="loginForm" class="form-horizontal"
-						action="../login" method="post" role="form">
+						action="login" method="post" role="form">
 						<div class="hidden"><input type="text" name="class"
 										value="0" ></div>
 						<div class="form-group">
-							<label class="col-md-4 control-label lb" for="user_name">User
+							<label class="col-md-4 control-label lb" for="username">User
 								Name: <span>*</span>
 							</label>
 							<div class="col-md-8">
-								<input type="text" value="" name="user_name" required
+								<input type="text" value="" name="username" required
 									class="form-control">
 							</div>
 							<div class="clearfix"></div>
 						</div>
 						<div class="form-group">
-							<label class="col-md-4 control-label lb" for="user_pass">Password:
+							<label class="col-md-4 control-label lb" for="password">Password:
 								<span>*</span>
 							</label>
 							<div class="col-md-8">
-								<input type="password" value="" name="user_pass" required
+								<input type="password" value="" name="password" required
 									placeholder="Enter your password" class="form-control">
 							</div>
 							<div class="clearfix"></div>

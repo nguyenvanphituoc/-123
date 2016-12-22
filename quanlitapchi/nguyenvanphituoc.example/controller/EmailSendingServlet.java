@@ -44,6 +44,7 @@ public class EmailSendingServlet extends HttpServlet {
 		String content = "Welcome to Web Science Journal \r\n"
 				+ " \r\nYou can access members area at:http://localhost:8080/quanlitapchi/index.html \r\n"
 				+ " \r\nYour email verify: "+ recipient+"\r\n"
+				+ " \r\nYour User name :" + request.getParameter("user_name")+ "\r\n"
 				+ " \r\nOur members area allows you to enter control panel, setup new domains, access website builder, get file upload and account details and request support.\r\n"
 				+ " \r\nIf you have any questions, please submit a ticket and we will be more than happy to assist you.\r\n"
 				+ " \r\nSincerely,\r\n"

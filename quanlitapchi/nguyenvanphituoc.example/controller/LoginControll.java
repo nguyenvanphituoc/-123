@@ -64,6 +64,7 @@ public class LoginControll extends HttpServlet {
 		String userValidate = loginDao.authenticateUser(loginBean); //Calling authenticateUser function
 
 		request.getSession().setAttribute("user", loginBean);
+		request.getSession().setMaxInactiveInterval(60*60);
 		getServletContext().setAttribute("user", loginBean);
 		getServletContext().setAttribute("errMessage", userValidate);
 		if(userValidate.equals("SUCCESS")) //If function returns success string then user will be rooted to Home page

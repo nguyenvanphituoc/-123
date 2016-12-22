@@ -93,7 +93,7 @@
 							class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<ins>Profile</ins>
-							<li class=""><a href="../logout" value="Home Page">Home</a></li>
+							<li class=""><a href="" value="Home Page">Home</a></li>
 							<ins>Other</ins>
 							<li class=""><a href="logout"  value="Sign Out">Sign out</a></li>
 						</ul></li>

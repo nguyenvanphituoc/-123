@@ -85,7 +85,7 @@
 							class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<ins>Profile</ins>
-							<li><a href="#">Home</a></li>
+							<li><a href="person_homepage.jsp">Home</a></li>
 							<ins>Other</ins>
 							<li class=""><a href="logout">Sign out</a></li>
 						</ul></li>

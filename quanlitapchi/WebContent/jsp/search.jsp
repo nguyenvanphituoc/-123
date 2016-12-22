@@ -177,7 +177,7 @@
 
 	<!-- Latest Research Reports -->
 	<div class="container bg-white  col-xs-12 col-md-9">
-		<div class="panel panel-default panel-teal  p-tb-20">
+		<div class="panel panel-default panel-teal  p-tb-20 latst_rsch_repts">
 			<div class="panel-heading">
 				<h3 class="panel-title">Result</h3>
 			</div>

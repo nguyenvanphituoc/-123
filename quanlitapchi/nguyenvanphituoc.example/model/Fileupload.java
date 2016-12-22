@@ -21,7 +21,7 @@ public class Fileupload {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public static void Upload(HttpServletRequest request, HttpServletResponse response, StringBuilder error){
+	public static void Upload(HttpServletRequest request, List<FileItem> fileitems, String filenewname, StringBuilder error){
 		// configures upload settings
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		// sets memory threshold - beyond which files are stored in disk 
@@ -49,16 +49,13 @@ public class Fileupload {
 
 		try {
 			// parses the request's content to extract file data
-			@SuppressWarnings("unchecked")
-			List<FileItem> formItems = upload.parseRequest(request);
-
-			if (formItems != null && formItems.size() > 0) {
+			if (fileitems != null && fileitems.size() > 0) {
 				// iterates over form's fields
-				for (FileItem item : formItems) {
+				for (FileItem item : fileitems) {
 					// processes only fields that are not form fields
 					if (!item.isFormField()) {
-						String fileName = new File(item.getName()).getName();
-						String filePath = uploadPath + File.separator + fileName;
+						item.getFieldName();
+						String filePath = uploadPath + File.separator + filenewname;
 						File storeFile = new File(filePath);
 
 						// saves the file on disk

@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import =" java.io.IOException" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -290,12 +291,15 @@
 
 						<div class="row ">
 							<div class="btn col-md-3">
-								<input class=" btn-default" type="button" title="Previous page"
-									value="<< Quay lại">
+							<%! void previousPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+								request.getRequestDispatcher("register_youraccount.jsp").forward(request, response);
+							} %>
+								<button class="btn-default" type="button" title="Previous page"
+									value="<< Quay lại" onclick="register_complete.jsp">Previous Page</button>
 							</div>
 							<div class="btn col-md-3">
-								<input class=" btn-default" type="button" title="continue"
-									value="Tiếp tục >>" onclick="submitform();">
+								<button class=" btn-default" type="button" title="continue"
+									value="Tiếp tục >>" onclick="submitform();">Đăng Ký</button>
 							</div>
 						</div>
 					</form>

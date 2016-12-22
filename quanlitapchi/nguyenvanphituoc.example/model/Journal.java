@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Journal 
 {
@@ -12,6 +13,9 @@ public class Journal
 		private String subName;
 		private String joComent;
 		private String keywd;
+		private String author;
+		private String joStatus;
+		public ArrayList<Reviewer> listRev;
 		public Journal(){
 			this.joID = -1;
 			this.joName = null;
@@ -21,9 +25,12 @@ public class Journal
 			this.subName = null;
 			this.joComent 	= null;
 			this.keywd 	= null;
+			this.author = null;
+			this.listRev = new ArrayList<Reviewer>();
+			this.joStatus = null;
 		}
 		public Journal( int joID, String joName, String joSubmit, 
-				int joStt, int subID, String subName, String joComent, String keywd){
+				int joStt, int subID, String subName, String joComent, String keywd, String author){
 			this.joID = joID;
 			this.joName = joName;
 			this.joSubmit = joSubmit;
@@ -32,6 +39,8 @@ public class Journal
 			this.subName = subName;
 			this.joComent 	= joComent;
 			this.keywd 	= keywd;
+			this.author = author;
+			this.listRev = new ArrayList<Reviewer>();
 		}
 		
 		public int getID() {
@@ -81,5 +90,36 @@ public class Journal
 		}
 		public void setKeywd(String keywd) {
 			this.keywd = keywd;
+		}
+		public String getAuthor() {
+			return this.author;
+		}
+		public void setAuthor(String Author) {
+			this.author = Author;
+		}
+		public String getjoSttToString(){
+			String stt = "";
+			switch (this.joStt) {
+			case 1:
+				stt="Reviewing";
+				break;
+			case 2:
+				stt="Reviewing again";
+				break;
+			case 3:
+				stt="Not public";
+				break;
+			case 4:
+				stt="Delete";
+				break;
+			case 5:
+				stt="Completed";
+				break;
+			default:
+				stt="On submit";
+				break;
+			}
+			this.joStatus = stt;
+			return stt;
 		}
 }
